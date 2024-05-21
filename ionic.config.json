@@ -1,0 +1,7 @@
+{
+  "name": "brunchiegame",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
