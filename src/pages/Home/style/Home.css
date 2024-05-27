@@ -1,0 +1,31 @@
+.relativeObject{
+    position: relative;
+}
+.cardBg{
+    margin: 0 auto;
+    max-width: 360px;
+}
+.bonusIcon{
+    position: absolute;
+    bottom: -82px;
+    left: -27px;
+    max-width: 200px;
+    min-width: 200px;
+}
+
+.kjkj{
+    max-width: 850px;
+}
+/* Home.css */
+
+.tab-bar-footer {
+    border-top: 1px solid #ccc;
+    background-color: #f8f8f8;
+  }
+  
+  .tab-bar-footer .ion-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

@@ -51,3 +51,9 @@
 .forgotpass{
     text-align: center;
 }
+.sub_login{
+	padding: 0 4px;
+	max-width: 7rem;
+	display: flex;
+	margin: 0 auto;
+}
