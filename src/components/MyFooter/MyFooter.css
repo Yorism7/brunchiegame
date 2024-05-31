@@ -1,0 +1,23 @@
+
+/* global.css */
+
+.custom-tab-bar {
+    --background: #ff9800;
+    --color-selected: white;
+  }
+  
+  .custom-tab-bar ion-tab-button {
+    --color-selected: white;
+    --color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .custom-tab-bar ion-tab-button ion-icon {
+    color: white;
+  }
+  
+  .custom-tab-bar ion-tab-button.ion-tab-button-selected ion-icon {
+    color: white;
+  }
+  .ion-button{
+    padding-top: 2em;
+  }
