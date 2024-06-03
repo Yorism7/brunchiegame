@@ -1,6 +1,7 @@
 import {  IonButton, IonCol, IonContent, IonGrid, IonIcon, IonImg, IonLabel, IonPage,  IonRow,  IonTabBar, IonTabButton  } from '@ionic/react';
 import './style/Home.css';
 import MyFooter from "../../components/MyFooter/MyFooter";
+import { Link } from 'react-router-dom';
 const Home: React.FC = () => {
   return (
     <IonPage>
@@ -15,8 +16,10 @@ const Home: React.FC = () => {
           <IonCol size='12'>
             {/* cardBg */}
             <div className="relativeObject" >
-              <IonImg src='public/icon/1-3.png' className='cardBg' 
-              ></IonImg>
+              <Link to="/GameSetup">
+                <IonImg src='public/icon/1-3.png' className='cardBg' 
+                ></IonImg>
+              </Link>
               {/* bonusIcon */}
               <IonImg src='public/icon/1-2.png' className='bonusIcon'></IonImg>
             </div>
