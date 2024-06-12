@@ -41,7 +41,7 @@ const GameSetup: React.FC = () => {
               <IonImg className="topIcon" src='/icon/2-2.png'></IonImg>
               <Swiper
                 effect={'cards'}
-                grabCursor={true}
+                // grabCursor={true}
                 modules={[EffectCards]}
                 className="mySwiper"
                 observer={true}
@@ -72,11 +72,10 @@ const GameSetup: React.FC = () => {
                     +
                   </IonButton>
                   <IonInput 
-                    type="number" 
-                    value={questionCount}
+                    type="text" 
+                    value={questionCount === 0 ? "ระบุจำนวนคำถาม" : questionCount}
                     onIonChange={e => setQuestionCount(Number(e.detail.value))}
                     disabled={true}
-                    placeholder="จำนวนคำถาม"
                   ></IonInput>
                   <IonButton 
                     shape='round' 
