@@ -12,7 +12,7 @@ const Home: React.FC = () => {
             <IonImg src='public\icon\KJKJ_LOGO.png'></IonImg>
           </IonRow>
 
-          <IonRow>git 
+          <IonRow>
           <IonCol size='12'>
             {/* cardBg */}
             <div className="relativeObject" >
