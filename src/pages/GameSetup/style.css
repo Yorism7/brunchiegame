@@ -80,14 +80,14 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.delNumber{
+.addNumber{
 position: absolute;
 right: 20px;
 font-size: medium;
 font-weight: 800;
 z-index: 5;
 }
-.addNumber{
+.delNumber{
   position: absolute;
   left: 5px;
   font-size: medium;

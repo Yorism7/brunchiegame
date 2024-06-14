@@ -1,5 +1,5 @@
 import {  IonButton, IonCol, IonContent, IonGrid, IonIcon, IonImg, IonLabel, IonPage,  IonRow,  IonTabBar, IonTabButton  } from '@ionic/react';
-import './style/Home.css';
+import './Home.css';
 import MyFooter from "../../components/MyFooter/MyFooter";
 import { Link } from 'react-router-dom';
 const Home: React.FC = () => {

@@ -1,6 +1,6 @@
 import { IonContent, IonInput, IonItem, IonPage, IonTitle, IonButton, IonText, IonGrid, IonRow, IonCol, IonImg } from '@ionic/react';
 import React from 'react';
-import './style/Login.css'
+import './Login.css'
 
 const Login: React.FC = () => {
     return (
@@ -37,7 +37,7 @@ const Login: React.FC = () => {
                     </IonRow>
                     <IonRow>
                         <IonCol>
-                            <IonButton className='form_sunmit' expand='block' color={'submit'}>SIGN IN</IonButton>
+                            <IonButton className='form_sunmit' expand='block' color={'submit'} routerLink='/home'>SIGN IN</IonButton>
                         </IonCol>
                     </IonRow>
                     <IonRow>

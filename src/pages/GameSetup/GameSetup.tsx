@@ -61,11 +61,11 @@ const GameSetup: React.FC = () => {
                 <IonItem className='CounterButton'>
                   <IonButton 
                     shape='round' 
-                    className='addNumber' 
+                    className='delNumber' 
                     color='base' 
-                    onClick={incrementCount}
+                    onClick={decrementCount}
                   >
-                    +
+                    -
                   </IonButton>
                   <IonInput 
                     type="text" 
@@ -75,11 +75,11 @@ const GameSetup: React.FC = () => {
                   ></IonInput>
                   <IonButton 
                     shape='round' 
-                    className='delNumber' 
+                    className='addNumber' 
                     color='base' 
-                    onClick={decrementCount}
+                    onClick={incrementCount}
                   >
-                    -
+                    +
                   </IonButton>
                 </IonItem>
               </IonList>
@@ -87,7 +87,7 @@ const GameSetup: React.FC = () => {
           </IonRow>
           <IonRow>
             <IonCol size="12">
-              <IonButton expand='block' color="light" shape='round' fill='outline' href='/home'><b>กดค้างเพื่อค้นใจ</b></IonButton>
+              <IonButton expand='block' color="light" shape='round' fill='outline' routerLink='/login'><b>กดค้างเพื่อค้นใจ</b></IonButton>
             </IonCol>
           </IonRow>
         </IonGrid>
