@@ -52,10 +52,6 @@ const GameSetup: React.FC = () => {
                 <SwiperSlide><IonImg src='/icon/KJKJ_LOGO.png'></IonImg></SwiperSlide>
                 <SwiperSlide><IonImg src='/icon/KJKJ_LOGO.png'></IonImg></SwiperSlide>
                 <SwiperSlide><IonImg src='/icon/KJKJ_LOGO.png'></IonImg></SwiperSlide>
-                <SwiperSlide><IonImg src='/icon/KJKJ_LOGO.png'></IonImg></SwiperSlide>
-                <SwiperSlide><IonImg src='/icon/KJKJ_LOGO.png'></IonImg></SwiperSlide>
-                <SwiperSlide><IonImg src='/icon/KJKJ_LOGO.png'></IonImg></SwiperSlide>
-                <SwiperSlide><IonImg src='/icon/KJKJ_LOGO.png'></IonImg></SwiperSlide>
               </Swiper>
             </IonCol>
           </IonRow>
