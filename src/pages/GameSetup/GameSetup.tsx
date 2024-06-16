@@ -43,7 +43,6 @@ const GameSetup: React.FC = () => {
                 effect={'cards'}
                 // grabCursor={true}
                 modules={[EffectCards]}
-                className="mySwiper"
                 observer={true}
                 observeParents={true}
               >
@@ -87,7 +86,7 @@ const GameSetup: React.FC = () => {
           </IonRow>
           <IonRow>
             <IonCol size="12">
-              <IonButton expand='block' color="light" shape='round' fill='outline' routerLink='/login'><b>กดค้างเพื่อค้นใจ</b></IonButton>
+              <IonButton expand='block' color="light" shape='round' fill='outline' routerLink='/playgame'><b>กดค้างเพื่อค้นใจ</b></IonButton>
             </IonCol>
           </IonRow>
         </IonGrid>

@@ -1,0 +1,92 @@
+
+.mySwiper {
+  padding-top: 30px !important;
+  width: 350px;
+  height: 600px ;
+}
+
+.swiper-slide {
+  display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 18px;
+font-size: 22px;
+font-weight: bold;
+color: #fff;
+}
+  
+.slide{
+  position: relative;
+  border-radius: 50px;
+}
+.slide h1{
+  font-size: 30px;
+}
+.slide .TopiconInCard{
+  position: absolute;
+  max-width: 80px !important;
+  top: 20px;
+  right: 20px;
+  width: 5em;
+  z-index: 3;
+}
+.slide .seccond-TopiconInCard{
+  position: absolute;
+  max-width: 80px !important;
+  top: 20px;
+  left: 20px;
+  width: 5em;
+  z-index: 3;
+}
+.slide .BottomiconInCard{
+  transform: rotate(180deg) !important;
+  position: absolute;
+  max-width: 80px !important;
+  bottom: 20px;
+  left: 20px;
+  width: 5em;
+  z-index: 3;
+}
+.slide .seccond-BottomiconInCard{
+  transform: rotate(180deg) !important;
+  position: absolute;
+  max-width: 80px !important;
+  bottom: 20px;
+  right: 20px;
+  width: 5em;
+  z-index: 3;
+}
+.slide:nth-child(1n) {
+  border: 15px solid #e1f9ff;
+  background-color: #36cbff;
+}
+  
+.slide:nth-child(2n) {
+  border: 15px solid #ffe5cc;
+  background-color: #ffa645;
+}
+  
+.slide:nth-child(3n) {
+  border: 15px solid #fffbd2;
+  background-color: #f2df2f;
+}
+  
+.slide:nth-child(4n) {
+  border: 15px solid #fcd9ff;
+  background-color: #fa99ff;
+}
+.ProgressTab{
+  position: relative;
+}
+.ProgressTab h1{
+  padding-top: 1.2em;
+  text-align: center;
+  font-weight: 1000;
+  font-size: 2em;
+  color: rgb(87, 87, 87);
+}
+.ProgressTab .top{
+  position: absolute;
+  left: 50;
+  width: 120px;
+}

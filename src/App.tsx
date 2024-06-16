@@ -34,6 +34,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import GameSetup from './pages/GameSetup/GameSetup';
+import PlayGame from './pages/PlayGame/PlayGame';
 
 setupIonicReact();
 const App: React.FC = () => (
@@ -48,6 +49,9 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/gamesetup">
           <GameSetup />
+        </Route>
+        <Route exact path="/playgame">
+          <PlayGame />
         </Route>
         <Route exact path="/">
           <Redirect to="/login" />

@@ -1,10 +1,10 @@
 :root {
-	--ion-color-main: #F7CE4E;
-	--ion-color-main-rgb: 247,206,78;
+	--ion-color-main: #F7CE55;
+	--ion-color-main-rgb: 247,206,85;
 	--ion-color-main-contrast: #000000;
 	--ion-color-main-contrast-rgb: 0,0,0;
-	--ion-color-main-shade: #d9b545;
-	--ion-color-main-tint: #f8d360;
+	--ion-color-main-shade: #d9b54b;
+	--ion-color-main-tint: #f8d366;
 }
 
 .ion-color-main {
