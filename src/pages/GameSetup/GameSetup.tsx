@@ -11,23 +11,6 @@ import { EffectCards } from 'swiper/modules';
 import './style.css';
 
 const GameSetup: React.FC = () => {
-  const [questionCount, setQuestionCount] = useState<number>(0);
-
-  const incrementCount = () => {
-    console.log('Increment button clicked');
-    setQuestionCount(questionCount + 10);
-  };
-
-  const decrementCount = () => {
-    console.log('Decrement button clicked');
-    if (questionCount > 0) {
-      setQuestionCount(questionCount - 10);
-    }
-  };
-
-  useIonViewDidEnter(() => {
-    console.log('IonViewDidEnter: Page has fully loaded');
-  });
 
   return (
     <IonPage>
@@ -36,6 +19,7 @@ const GameSetup: React.FC = () => {
           <IonRow>
             <IonImg src='/icon/2-1.png'></IonImg>
           </IonRow>
+
           <IonRow>
             <IonCol size="12" className='cardContainer'>
               <IonImg className="topIcon" src='/icon/2-2.png'></IonImg>
@@ -46,49 +30,21 @@ const GameSetup: React.FC = () => {
                 observer={true}
                 observeParents={true}
               >
-                <SwiperSlide><IonImg src='/icon/KJKJ_LOGO.png'></IonImg></SwiperSlide>
-                <SwiperSlide><IonImg src='/icon/KJKJ_LOGO.png'></IonImg></SwiperSlide>
-                <SwiperSlide><IonImg src='/icon/KJKJ_LOGO.png'></IonImg></SwiperSlide>
-                <SwiperSlide><IonImg src='/icon/KJKJ_LOGO.png'></IonImg></SwiperSlide>
-                <SwiperSlide><IonImg src='/icon/KJKJ_LOGO.png'></IonImg></SwiperSlide>
+                <SwiperSlide>งาน</SwiperSlide>
+                <SwiperSlide>เงิน</SwiperSlide>
+                <SwiperSlide>ธุรกิจ</SwiperSlide>
+                <SwiperSlide>ครอบครัว</SwiperSlide>
+                <SwiperSlide>เพื่อน</SwiperSlide>
               </Swiper>
             </IonCol>
           </IonRow>
-          <IonRow>
-            <IonCol size="12">
-              <IonList className='designInput'>
-                <IonItem className='CounterButton'>
-                  <IonButton 
-                    shape='round' 
-                    className='delNumber' 
-                    color='base' 
-                    onClick={decrementCount}
-                  >
-                    -
-                  </IonButton>
-                  <IonInput 
-                    type="text" 
-                    value={questionCount === 0 ? "ระบุจำนวนคำถาม" : questionCount}
-                    onIonChange={e => setQuestionCount(Number(e.detail.value))}
-                    disabled={true}
-                  ></IonInput>
-                  <IonButton 
-                    shape='round' 
-                    className='addNumber' 
-                    color='base' 
-                    onClick={incrementCount}
-                  >
-                    +
-                  </IonButton>
-                </IonItem>
-              </IonList>
-            </IonCol>
-          </IonRow>
+
           <IonRow>
             <IonCol size="12">
               <IonButton expand='block' color="light" shape='round' fill='outline' routerLink='/playgame'><b>กดค้างเพื่อค้นใจ</b></IonButton>
             </IonCol>
           </IonRow>
+
         </IonGrid>
       </IonContent>
       <MyFooter />

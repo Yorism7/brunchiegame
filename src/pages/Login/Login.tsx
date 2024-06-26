@@ -5,11 +5,11 @@ import './Login.css'
 const Login: React.FC = () => {
     return (
         <IonPage>
-            <IonContent color={'main'} className="ion-padding">
+            <IonContent color={'main'} >
                 <IonGrid>
-                    <IonRow class='ion-justify-content-center'>
+                    <IonRow>
                         <IonCol size='12'>
-                            <IonImg src='public\icon\KJKJ_LOGO.png'></IonImg>
+                            <IonImg src='/icon/KJKJ_LOGO.png'></IonImg>
                         </IonCol>
                     </IonRow>
                     <IonRow>
@@ -41,14 +41,19 @@ const Login: React.FC = () => {
                         </IonCol>
                     </IonRow>
                     <IonRow>
+                        <IonCol size="12">
+                        <IonButton expand='block' color="light" shape='round' fill='outline' routerLink='/gamesetup'><b>guest</b></IonButton>
+                        </IonCol>
+                    </IonRow>
+                    <IonRow>
                         <IonCol className='sub_login'>
-                            <IonImg className='sub_login' src='public\icon\line.png'></IonImg>
-                            <IonImg className='sub_login' src='public\icon\facebook.png'></IonImg>
+                            <IonImg className='sub_login' src='/icon/line.png'></IonImg>
+                            <IonImg className='sub_login' src='/icon/facebook.png'></IonImg>
                         </IonCol>
                     </IonRow>
                     <IonRow>
                         <IonCol size='12'>
-                            <IonImg className='footer' src='public\icon\logo_footer.png'></IonImg>
+                            <IonImg className='footer' src='/icon/logo_footer.png'></IonImg>
                         </IonCol>
                     </IonRow>
                     <IonRow className='ion-padding-top'>

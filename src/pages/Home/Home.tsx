@@ -9,7 +9,7 @@ const Home: React.FC = () => {
         <IonGrid>
 
           <IonRow>
-            <IonImg src='public\icon\KJKJ_LOGO.png'></IonImg>
+            <IonImg src='/icon/KJKJ_LOGO.png'></IonImg>
           </IonRow>
 
           <IonRow>
@@ -17,25 +17,21 @@ const Home: React.FC = () => {
             {/* cardBg */}
             <div className="relativeObject" >
               <Link to="/GameSetup">
-                <IonImg src='public/icon/1-3.png' className='cardBg' 
+                <IonImg src='/icon/1-3.png' className='cardBg' 
                 ></IonImg>
               </Link>
               {/* bonusIcon */}
-              <IonImg src='public/icon/1-2.png' className='bonusIcon'></IonImg>
+              <IonImg src='/icon/1-2.png' className='bonusIcon'></IonImg>
             </div>
           </IonCol>
           </IonRow>
 
           <IonRow style={{'padding': '4em 0'}}>
             <IonCol>
-              {/* button */}
               <IonButton expand='block' color="light" shape='round' fill='outline' href='/home'><b>ดูรายการคำถาม</b></IonButton>
-              {/* <IonImg src='public/icon/1-2.png'></IonImg> */}
             </IonCol>
             <IonCol>
-              {/* button */}
               <IonButton expand='block' color="light" shape='round' fill='outline' href='/GameSetup'><b>วิธีการเล่น</b></IonButton>
-              {/* <IonImg src='public/icon/1-2.png'></IonImg> */}
             </IonCol>
           </IonRow>
         </IonGrid>
