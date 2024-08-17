@@ -1,0 +1,19 @@
+/* custom-card.css */
+
+.custom-card {
+  background-color: transparent; /* No background color */
+  border: none; /* No border */
+  padding: 0; /* No padding */
+  overflow: hidden; /* Hide any overflow content (including text) */
+  box-shadow: none; /* Remove the shadow effect */
+}
+
+.custom-card ion-card-content {
+  display: none; /* Hide the card content */
+}
+
+.custom-card img {
+  width: 100%; /* Make the image fill the card */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove any default spacing around the image */
+}

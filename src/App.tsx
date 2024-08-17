@@ -34,6 +34,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import GameSetup from './pages/GameSetup/GameSetup';
+import SeeMore from './pages/SeeMore/SeeMore';
 import PlayGame from './pages/PlayGame/PlayGame';
 import EndGame from './pages/EndGame/EndGame';
 
@@ -50,6 +51,9 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/gamesetup">
           <GameSetup />
+        </Route>
+        <Route exact path="/seemore">
+          <SeeMore />
         </Route>
         <Route exact path="/playgame">
           <PlayGame />

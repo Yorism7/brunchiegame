@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  IonButton, IonCard, IonCardContent, IonCol, IonContent, IonGrid,
-  IonImg, IonInput, IonItem, IonLabel, IonList, IonPage, IonRow, useIonViewDidEnter
-} from '@ionic/react';
+  IonButton, IonCol, IonContent, IonGrid,
+  IonImg, IonPage, IonRow} from '@ionic/react';
 import MyFooter from "../../components/MyFooter/MyFooter";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -40,6 +39,9 @@ const GameSetup: React.FC = () => {
           </IonRow>
 
           <IonRow>
+            <IonCol size="12">
+              <IonButton expand='block' color="light" shape='round' fill='outline' routerLink='/seemore'><b>หมวดจอยทั้งหมด</b></IonButton>
+            </IonCol>
             <IonCol size="12">
               <IonButton expand='block' color="light" shape='round' fill='outline' routerLink='/playgame'><b>กดค้างเพื่อค้นใจ</b></IonButton>
             </IonCol>
