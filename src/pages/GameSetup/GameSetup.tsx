@@ -29,6 +29,31 @@ const GameSetup: React.FC = () => {
                 observer={true}
                 observeParents={true}
               >
+                <SwiperSlide>
+                  <div className="slide-content">
+                    <img src="/card/2-3.png" alt="Book Cover" />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="slide-content">
+                    <img src="/card/2-4.png" alt="Book Cover" />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="slide-content">
+                    <img src="/card/2-5.png" alt="Book Cover" />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="slide-content">
+                    <img src="/card/2-6.png" alt="Book Cover" />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="slide-content">
+                    <img src="/card/2-7.png" alt="Book Cover" />
+                  </div>
+                </SwiperSlide>
                 <SwiperSlide>งาน</SwiperSlide>
                 <SwiperSlide>เงิน</SwiperSlide>
                 <SwiperSlide>ธุรกิจ</SwiperSlide>

@@ -1,18 +1,19 @@
 
 .mySwiper {
   padding-top: 30px !important;
-  width: 350px;
-  height: 600px ;
+  width: auto;
+  max-width: 320px;
+  height: auto ;
 }
 
 .swiper-slide {
   display: flex;
-align-items: center;
-justify-content: center;
-border-radius: 18px;
-font-size: 22px;
-font-weight: bold;
-color: #fff;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
 }
   
 .slide{
@@ -20,7 +21,8 @@ color: #fff;
   border-radius: 50px;
 }
 .slide h1{
-  font-size: 30px;
+  font-size: 28px;
+  padding:6.2em 0.5em;
 }
 .slide .TopiconInCard{
   position: absolute;
