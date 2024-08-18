@@ -54,11 +54,11 @@ const GameSetup: React.FC = () => {
                     <img src="/card/2-7.png" alt="Book Cover" />
                   </div>
                 </SwiperSlide>
-                <SwiperSlide>งาน</SwiperSlide>
+                {/* <SwiperSlide>งาน</SwiperSlide>
                 <SwiperSlide>เงิน</SwiperSlide>
                 <SwiperSlide>ธุรกิจ</SwiperSlide>
                 <SwiperSlide>ครอบครัว</SwiperSlide>
-                <SwiperSlide>เพื่อน</SwiperSlide>
+                <SwiperSlide>เพื่อน</SwiperSlide> */}
               </Swiper>
             </IonCol>
           </IonRow>
