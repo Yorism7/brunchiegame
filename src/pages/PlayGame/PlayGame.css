@@ -92,3 +92,9 @@
   left: 50;
   width: 120px;
 }
+@media only screen and (max-width: 300px) {
+  .swiper {
+    max-width: 300px;
+  }
+}
+  

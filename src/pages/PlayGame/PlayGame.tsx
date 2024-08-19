@@ -20,7 +20,7 @@ const PlayGame: React.FC = () => {
   });
   
   useEffect(() => {
-    if (currentSlide+1 === 5) {
+    if (currentSlide+1 === 6) {
       history.push('/endgame');
     }
   }, [currentSlide, history]);
@@ -82,6 +82,13 @@ const PlayGame: React.FC = () => {
                 </SwiperSlide>
                 <SwiperSlide className='slide'>
                   <h1>คำถามไม่ต้องการคำตอบ</h1>
+                  <IonImg src='/icon/LOGO.svg' className='TopiconInCard'></IonImg>
+                  <IonImg src='/icon/icon-5.svg' className='seccond-TopiconInCard'></IonImg>
+                  <IonImg src='/icon/LOGO.svg' className='BottomiconInCard'></IonImg>
+                  <IonImg src='/icon/icon-5.svg' className='seccond-BottomiconInCard'></IonImg>
+                </SwiperSlide>
+                <SwiperSlide className='slide'>
+                  <h1>จบเกม</h1>
                   <IonImg src='/icon/LOGO.svg' className='TopiconInCard'></IonImg>
                   <IonImg src='/icon/icon-5.svg' className='seccond-TopiconInCard'></IonImg>
                   <IonImg src='/icon/LOGO.svg' className='BottomiconInCard'></IonImg>

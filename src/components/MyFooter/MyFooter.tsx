@@ -5,7 +5,7 @@ const MyFooter: React.FC = () => {
   return (
     <>
         <IonTabBar slot="bottom" className="custom-tab-bar">
-          <IonTabButton href="/" tab="home">
+          <IonTabButton href="/Home" tab="home">
             <IonIcon icon={playCircle} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
