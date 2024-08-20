@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   IonButton, IonCol, IonContent, IonGrid,
-  IonImg, IonPage, IonRow} from '@ionic/react';
+  IonImg, IonPage, IonRow
+} from '@ionic/react';
 import MyFooter from "../../components/MyFooter/MyFooter";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 import { EffectCards } from 'swiper/modules';
+import { useHistory } from 'react-router-dom';
 import './style.css';
 
 const GameSetup: React.FC = () => {
+  const history = useHistory();
+  const [selectedSlide, setSelectedSlide] = useState<any>(null);
+
+  const handleSlideChange = (slideData: any) => {
+    setSelectedSlide(slideData); // Save the selected slide's data
+  };
+
+  const handleButtonClick = () => {
+    if (selectedSlide) {
+      history.push({
+        pathname: '/playgame',
+        state: { slideData: selectedSlide }, // Pass the selected slide's data to /playgame
+      });
+    } else {
+      alert('Please select a slide before proceeding.');
+    }
+  };
 
   return (
     <IonPage>
@@ -24,41 +43,40 @@ const GameSetup: React.FC = () => {
               <IonImg className="topIcon" src='/icon/2-2.png'></IonImg>
               <Swiper
                 effect={'cards'}
-                // grabCursor={true}
                 modules={[EffectCards]}
                 observer={true}
                 observeParents={true}
+                onSlideChange={(swiper) => {
+                  const slideIndex = swiper.activeIndex;
+                  const slideData = swiper.slides[slideIndex].querySelector('img')?.getAttribute('alt');
+                  handleSlideChange({ imgSrc: swiper.slides[slideIndex].querySelector('img')?.getAttribute('src'), alt: slideData });
+                }}
               >
                 <SwiperSlide>
                   <div className="slide-content">
-                    <img src="/card/2-3.png" alt="Book Cover" />
+                    <img src="/card/2-3.png" alt="random" />
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <div className="slide-content">
-                    <img src="/card/2-4.png" alt="Book Cover" />
+                    <img src="/card/2-4.png" alt="Job and money" />
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <div className="slide-content">
-                    <img src="/card/2-5.png" alt="Book Cover" />
+                    <img src="/card/2-5.png" alt="relation" />
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <div className="slide-content">
-                    <img src="/card/2-6.png" alt="Book Cover" />
+                    <img src="/card/2-6.png" alt="General" />
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <div className="slide-content">
-                    <img src="/card/2-7.png" alt="Book Cover" />
+                    <img src="/card/2-7.png" alt="love" />
                   </div>
                 </SwiperSlide>
-                {/* <SwiperSlide>งาน</SwiperSlide>
-                <SwiperSlide>เงิน</SwiperSlide>
-                <SwiperSlide>ธุรกิจ</SwiperSlide>
-                <SwiperSlide>ครอบครัว</SwiperSlide>
-                <SwiperSlide>เพื่อน</SwiperSlide> */}
               </Swiper>
             </IonCol>
           </IonRow>
@@ -68,7 +86,7 @@ const GameSetup: React.FC = () => {
               <IonButton expand='block' color="light" shape='round' fill='outline' routerLink='/seemore'><b>หมวดจอยทั้งหมด</b></IonButton>
             </IonCol>
             <IonCol size="12">
-              <IonButton expand='block' color="light" shape='round' fill='outline' routerLink='/playgame'><b>กดค้างเพื่อค้นใจ</b></IonButton>
+              <IonButton expand='block' color="light" shape='round' fill='outline' onClick={handleButtonClick}><b>กดค้างเพื่อค้นใจ</b></IonButton>
             </IonCol>
           </IonRow>
 
