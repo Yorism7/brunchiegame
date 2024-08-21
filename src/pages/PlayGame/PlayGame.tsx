@@ -23,14 +23,14 @@ const getRandomLines = (lines: string[], maxLines: number) => {
   // Select up to maxLines from the shuffled array
   return shuffled.slice(0, maxLines);
 };
-
 const PlayGame: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [Icon_name, setIcon_name] = useState(0);
   const [lines, setLines] = useState<string[]>([]);
   const history = useHistory();
   const location = useLocation();
-  const slideData = location.state ?? {slideData: { imgSrc: '/icon/default.png', alt: 'Default Alt' }}
+  const slideData = location.state ?? {slideData: { path: 'default'}}
+  console.log(slideData);
   
   const checkRandomStatus = (status: any) => {
     if(status!='random'){
