@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
   IonCol, IonContent, IonGrid,
-  IonImg, IonPage, IonRow,
-  useIonViewDidEnter
+  IonImg, IonPage, IonRow
 } from '@ionic/react';
 import { useHistory, useLocation } from 'react-router-dom';
 import MyFooter from "../../components/MyFooter/MyFooter";
@@ -18,47 +17,74 @@ const fetchTextFileContent = async (filePath: string) => {
   return text;
 };
 
+const getRandomLines = (lines: string[], maxLines: number) => {
+  // Shuffle the array
+  const shuffled = lines.sort(() => 0.5 - Math.random());
+  // Select up to maxLines from the shuffled array
+  return shuffled.slice(0, maxLines);
+};
+
+interface SlideData  {
+  imgSrc: string;
+  alt: string;
+}
+
 const PlayGame: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [lines, setLines] = useState<string[]>([]);
   const history = useHistory();
   const location = useLocation();
-
-  const slideData = location.state?.slideData || { imgSrc: '/icon/default.png', alt: 'Default Alt' };
-
-  const loadTextContent = async () => {
-    const content = await fetchTextFileContent('/txt/question.txt');
+  const slideData = location.state ?? {slideData: { imgSrc: '/icon/default.png', alt: 'Default Alt' }}
+  console.log(slideData.path);
+  
+  const caseCheck = (path: any) => {
+    switch (path) {
+      case 'icon-5':
+        return '/txt/question1.txt';
+      case 'data2':
+        return '/txt/question2.txt';
+      case 'data3':
+        return '/txt/question3.txt';
+      case 'data4':
+        return '/txt/question4.txt';
+      default:
+        return '/txt/no_more.txt';
+    }
+  }
+  const loadTextContent = async (path: any) => {
+    const content = await fetchTextFileContent(caseCheck(path));
     const linesArray = content.split('\n').filter(Boolean);
-    setLines(linesArray);
+    // Get up to 10 random lines
+    const randomLines = getRandomLines(linesArray, 10);
+    setLines(randomLines);
     setCurrentSlide(0); // Reset to the first slide when loading new content
   };
 
-  // Call loadTextContent when the page is entered
   useEffect(() => {
-    loadTextContent(); // Load content on component mount
+      loadTextContent(slideData.path); // Load content on component mount or when location changes
   }, [location]);
 
   const endgamepage = async () => {
     return history.push('/endgame');
   };
 
-    const handleSlideChange = (swiper: any) => {
-      if (swiper.activeIndex >= lines.length) {
-        endgamepage();
-        swiper.slideTo(0); // Reset swiper to the first slide
-      } else {
-        setCurrentSlide(swiper.activeIndex);
-      }
-    };
-
+  const handleSlideChange = (swiper: any) => {
+    if (swiper.activeIndex >= lines.length) {
+      endgamepage();
+        swiper.slideTo(0);
+    } else {
+      setCurrentSlide(swiper.activeIndex);
+    }
+  };
+  
   return (
     <IonPage>
       <IonContent>
         <IonGrid>
           <IonRow>
             <IonCol size='12' className='ProgressTab'>
-              <IonImg className='top' src='/icon/B3.svg' alt='Progress Icon'></IonImg>
-              <h1>{currentSlide + 1}/{lines.length + 1}</h1>
+              <IonImg className='top' src='/icon/B3.svg' alt='Progress Icon' />
+              <h1>{currentSlide + 1}/{lines.length}</h1> {/* Adjusted to show number of displayed lines */}
             </IonCol>
           </IonRow>
           <IonRow>
@@ -73,11 +99,11 @@ const PlayGame: React.FC = () => {
               >
                 {lines.map((line, index) => (
                   <SwiperSlide key={index} className='slide'>
-                    <h1>{line}</h1>
-                    <IonImg src={slideData.imgSrc} className='TopiconInCard' alt='Slide Image'></IonImg>
-                    <IonImg src='/icon/icon-5.svg' className='seccond-TopiconInCard' alt='Additional Icon'></IonImg>
-                    <IonImg src='/icon/LOGO.svg' className='BottomiconInCard' alt='Logo'></IonImg>
-                    <IonImg src='/icon/icon-5.svg' className='seccond-BottomiconInCard' alt='Additional Icon'></IonImg>
+                    <h1>{line}</h1> {/* Display the randomly selected line */}
+                    <IonImg src='/icon/LOGO.svg' className='TopiconInCard' alt='Slide Image' />
+                    <IonImg src={'icon/'+slideData.path+'.svg'} className='seccond-TopiconInCard' alt='Icon' />
+                    <IonImg src='/icon/LOGO.svg' className='BottomiconInCard' alt='Logo' />
+                    <IonImg src={'icon/'+slideData.path+'.svg'} className='seccond-BottomiconInCard' alt='Icon' />
                   </SwiperSlide>
                 ))}
                 <SwiperSlide className='slide'>
@@ -94,7 +120,3 @@ const PlayGame: React.FC = () => {
 };
 
 export default PlayGame;
-function loadTextContent() {
-  throw new Error('Function not implemented.');
-}
-

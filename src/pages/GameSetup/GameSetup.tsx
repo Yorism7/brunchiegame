@@ -23,7 +23,7 @@ const GameSetup: React.FC = () => {
     if (selectedSlide) {
       history.push({
         pathname: '/playgame',
-        state: { slideData: selectedSlide }, // Pass the selected slide's data to /playgame
+        state: { path: selectedSlide.slideData }, // Pass the selected slide's data to /playgame
       });
     } else {
       alert('Please select a slide before proceeding.');
@@ -48,8 +48,8 @@ const GameSetup: React.FC = () => {
                 observeParents={true}
                 onSlideChange={(swiper) => {
                   const slideIndex = swiper.activeIndex;
-                  const slideData = swiper.slides[slideIndex].querySelector('img')?.getAttribute('alt');
-                  handleSlideChange({ imgSrc: swiper.slides[slideIndex].querySelector('img')?.getAttribute('src'), alt: slideData });
+                  const slideData = swiper.slides[slideIndex].querySelector('img')?.getAttribute('alt'); // Get the alt attribute
+                  handleSlideChange({ slideData }); // Pass only the alt value
                 }}
               >
                 <SwiperSlide>
@@ -59,7 +59,7 @@ const GameSetup: React.FC = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                   <div className="slide-content">
-                    <img src="/card/2-4.png" alt="Job and money" />
+                    <img src="/card/2-4.png" alt="icon-5" />
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
