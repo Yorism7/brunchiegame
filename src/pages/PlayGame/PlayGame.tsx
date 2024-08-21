@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {
   IonCol, IonContent, IonGrid,
-  IonImg, IonPage, IonRow
+  IonImg, IonPage, IonRow,
+  useIonViewDidEnter
 } from '@ionic/react';
 import { useHistory, useLocation } from 'react-router-dom';
 import MyFooter from "../../components/MyFooter/MyFooter";
@@ -25,32 +26,30 @@ const PlayGame: React.FC = () => {
 
   const slideData = location.state?.slideData || { imgSrc: '/icon/default.png', alt: 'Default Alt' };
 
-  useEffect(() => {
-    const loadTextContent = async () => {
-      const content = await fetchTextFileContent('/txt/question.txt');
-      const linesArray = content.split('\n').filter(Boolean);
-      setLines(linesArray);
-    };
-
-    loadTextContent();
-  }, []);
-
-  useEffect(() => {
-    // Check if the currentSlide index exceeds the number of slides, including the "End of Game" slide
-    if (lines.length > 0 && currentSlide > lines.length) {
-      history.push('/endgame');
-    }
-  }, [currentSlide, lines.length, history]);
-
-  const handleSlideChange = (swiper: any) => {
-    // Prevent advancing beyond the "End of Game" slide
-    if (swiper.activeIndex <= lines.length) {
-      setCurrentSlide(swiper.activeIndex);
-    } else {
-      history.push('/endgame');
-    }
-    console.log('Current slide index:', swiper.activeIndex);
+  const loadTextContent = async () => {
+    const content = await fetchTextFileContent('/txt/question.txt');
+    const linesArray = content.split('\n').filter(Boolean);
+    setLines(linesArray);
+    setCurrentSlide(0); // Reset to the first slide when loading new content
   };
+
+  // Call loadTextContent when the page is entered
+  useEffect(() => {
+    loadTextContent(); // Load content on component mount
+  }, [location]);
+
+  const endgamepage = async () => {
+    return history.push('/endgame');
+  };
+
+    const handleSlideChange = (swiper: any) => {
+      if (swiper.activeIndex >= lines.length) {
+        endgamepage();
+        swiper.slideTo(0); // Reset swiper to the first slide
+      } else {
+        setCurrentSlide(swiper.activeIndex);
+      }
+    };
 
   return (
     <IonPage>
@@ -59,7 +58,7 @@ const PlayGame: React.FC = () => {
           <IonRow>
             <IonCol size='12' className='ProgressTab'>
               <IonImg className='top' src='/icon/B3.svg' alt='Progress Icon'></IonImg>
-              <h1>{currentSlide + 1}/{lines.length + 1}</h1> {/* Adjusted to include the last slide */}
+              <h1>{currentSlide + 1}/{lines.length + 1}</h1>
             </IonCol>
           </IonRow>
           <IonRow>
@@ -95,3 +94,7 @@ const PlayGame: React.FC = () => {
 };
 
 export default PlayGame;
+function loadTextContent() {
+  throw new Error('Function not implemented.');
+}
+
