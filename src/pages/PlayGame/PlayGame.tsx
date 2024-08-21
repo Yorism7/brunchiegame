@@ -24,44 +24,58 @@ const getRandomLines = (lines: string[], maxLines: number) => {
   return shuffled.slice(0, maxLines);
 };
 
-interface SlideData  {
-  imgSrc: string;
-  alt: string;
-}
-
 const PlayGame: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [Icon_name, setIcon_name] = useState(0);
   const [lines, setLines] = useState<string[]>([]);
   const history = useHistory();
   const location = useLocation();
   const slideData = location.state ?? {slideData: { imgSrc: '/icon/default.png', alt: 'Default Alt' }}
-  console.log(slideData.path);
   
-  const caseCheck = (path: any) => {
+  const checkRandomStatus = (status: any) => {
+    if(status!='random'){
+      return status;
+    }
+    else{
+       // Create an array of the possible paths
+    const paths = [
+      'icon-5',
+      'icon-2',
+      'icon-3',
+      'icon-4'
+    ];
+    // Select a random index from the paths array
+    const randomIndex = Math.floor(Math.random() * paths.length);
+    return paths[randomIndex];
+    }
+  }
+  
+  const pathQuestion = (path: any) => {
     switch (path) {
       case 'icon-5':
         return '/txt/question1.txt';
-      case 'data2':
+      case 'icon-2':
         return '/txt/question2.txt';
-      case 'data3':
+      case 'icon-3':
         return '/txt/question3.txt';
-      case 'data4':
+      case 'icon-4':
         return '/txt/question4.txt';
       default:
         return '/txt/no_more.txt';
     }
   }
   const loadTextContent = async (path: any) => {
-    const content = await fetchTextFileContent(caseCheck(path));
+    const content = await fetchTextFileContent(pathQuestion(path));
     const linesArray = content.split('\n').filter(Boolean);
     // Get up to 10 random lines
-    const randomLines = getRandomLines(linesArray, 10);
+    const randomLines = getRandomLines(linesArray, 20);
     setLines(randomLines);
     setCurrentSlide(0); // Reset to the first slide when loading new content
+    setIcon_name(path);
   };
 
   useEffect(() => {
-      loadTextContent(slideData.path); // Load content on component mount or when location changes
+      loadTextContent(checkRandomStatus(slideData.path)); // Load content on component mount or when location changes
   }, [location]);
 
   const endgamepage = async () => {
@@ -101,9 +115,9 @@ const PlayGame: React.FC = () => {
                   <SwiperSlide key={index} className='slide'>
                     <h1>{line}</h1> {/* Display the randomly selected line */}
                     <IonImg src='/icon/LOGO.svg' className='TopiconInCard' alt='Slide Image' />
-                    <IonImg src={'icon/'+slideData.path+'.svg'} className='seccond-TopiconInCard' alt='Icon' />
+                    <IonImg src={'icon/'+Icon_name+'.svg'} className='seccond-TopiconInCard' alt='Icon' />
                     <IonImg src='/icon/LOGO.svg' className='BottomiconInCard' alt='Logo' />
-                    <IonImg src={'icon/'+slideData.path+'.svg'} className='seccond-BottomiconInCard' alt='Icon' />
+                    <IonImg src={'icon/'+Icon_name+'.svg'} className='seccond-BottomiconInCard' alt='Icon' />
                   </SwiperSlide>
                 ))}
                 <SwiperSlide className='slide'>

@@ -64,17 +64,17 @@ const GameSetup: React.FC = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                   <div className="slide-content">
-                    <img src="/card/2-5.png" alt="relation" />
+                    <img src="/card/2-5.png" alt="icon-2" />
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <div className="slide-content">
-                    <img src="/card/2-6.png" alt="General" />
+                    <img src="/card/2-6.png" alt="icon-3" />
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
                   <div className="slide-content">
-                    <img src="/card/2-7.png" alt="love" />
+                    <img src="/card/2-7.png" alt="icon-4" />
                   </div>
                 </SwiperSlide>
               </Swiper>
