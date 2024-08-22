@@ -30,7 +30,6 @@ const PlayGame: React.FC = () => {
   const history = useHistory();
   const location = useLocation();
   const slideData = location.state ?? {slideData: { path: 'default'}}
-  console.log(slideData);
   
   const checkRandomStatus = (status: any) => {
     if(status!='random'){
