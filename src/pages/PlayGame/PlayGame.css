@@ -2,6 +2,8 @@
 .mySwiper {
   padding-top: 30px !important;
   width: auto;
+  height: 480px !important;
+  max-height: 480px !important ;
   max-width: 320px;
   height: auto ;
 }
@@ -21,12 +23,12 @@
   border-radius: 50px;
 }
 .slide h1{
-  font-size: 28px;
-  padding:6.2em 0.5em;
+  font-size: 26px;
+  padding:8.2rem 1.5rem;
 }
 .slide .TopiconInCard{
   position: absolute;
-  max-width: 80px !important;
+  max-width: 70px !important;
   top: 20px;
   right: 20px;
   width: 5em;
@@ -34,7 +36,7 @@
 }
 .slide .seccond-TopiconInCard{
   position: absolute;
-  max-width: 80px !important;
+  max-width: 70px !important;
   top: 20px;
   left: 20px;
   width: 5em;
@@ -43,7 +45,7 @@
 .slide .BottomiconInCard{
   transform: rotate(180deg) !important;
   position: absolute;
-  max-width: 80px !important;
+  max-width: 70px !important;
   bottom: 20px;
   left: 20px;
   width: 5em;
@@ -52,7 +54,7 @@
 .slide .seccond-BottomiconInCard{
   transform: rotate(180deg) !important;
   position: absolute;
-  max-width: 80px !important;
+  max-width: 70px !important;
   bottom: 20px;
   right: 20px;
   width: 5em;

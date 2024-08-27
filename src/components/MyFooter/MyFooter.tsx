@@ -1,25 +1,25 @@
 import {  IonIcon, IonLabel, IonTabBar, IonTabButton  } from '@ionic/react';
-import { call, person, playCircle, settings } from 'ionicons/icons';
+import { appsOutline, appsSharp, atSharp, bag, bagOutline, banSharp, call, chatbubblesOutline, cutOutline, home, homeOutline, logoAlipay, logOutOutline, logOutSharp, moonSharp, openSharp, person, playCircle, settings } from 'ionicons/icons';
 import '../MyFooter/MyFooter.css';
 const MyFooter: React.FC = () => {
   return (
     <>
         <IonTabBar slot="bottom" className="custom-tab-bar">
-          <IonTabButton href="/Home" tab="home">
-            <IonIcon icon={playCircle} />
+          <IonTabButton href="/Gamesetup" tab="home">
+            <IonIcon icon={home} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
-          <IonTabButton href="/" tab="contacts">
-            <IonIcon icon={call} />
-            <IonLabel>Contacts</IonLabel>
+          <IonTabButton href="https://www.brunchtimeshop.com/products" tab="contacts">
+            <IonIcon icon={bag} />
+            <IonLabel>Shop</IonLabel>
           </IonTabButton>
-          <IonTabButton href="/" tab="settings">
-            <IonIcon icon={settings} />
-            <IonLabel>Settings</IonLabel>
+          <IonTabButton href="https://www.brunchtimeshop.com" tab="settings">
+            <IonIcon icon={openSharp} />
+            <IonLabel>Website</IonLabel>
           </IonTabButton>
           <IonTabButton href="/" tab="profile">
-            <IonIcon icon={person} />
-            <IonLabel>Profile</IonLabel>
+            <IonIcon icon={logOutSharp} />
+            <IonLabel>Logout</IonLabel>
           </IonTabButton>
         </IonTabBar>
     </>

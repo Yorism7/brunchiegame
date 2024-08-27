@@ -23,14 +23,15 @@ const getRandomLines = (lines: string[], maxLines: number) => {
   // Select up to maxLines from the shuffled array
   return shuffled.slice(0, maxLines);
 };
+
 const PlayGame: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [Icon_name, setIcon_name] = useState(0);
   const [lines, setLines] = useState<string[]>([]);
   const history = useHistory();
-  const location = useLocation();
-  const slideData = location.state ?? {slideData: { path: 'default'}}
-  
+  const location = useLocation<string[]>();
+  const slideData = location.state.toString() ?? "default";
+
   const checkRandomStatus = (status: any) => {
     if(status!='random'){
       return status;
@@ -49,8 +50,8 @@ const PlayGame: React.FC = () => {
     }
   }
   
-  const pathQuestion = (path: any) => {
-    switch (path) {
+  const pathQuestion = (pathList: any) => {
+    switch (pathList) {
       case 'icon-5':
         return '/txt/question1.txt';
       case 'icon-2':
@@ -63,18 +64,18 @@ const PlayGame: React.FC = () => {
         return '/txt/no_more.txt';
     }
   }
-  const loadTextContent = async (path: any) => {
-    const content = await fetchTextFileContent(pathQuestion(path));
+  const loadTextContent = async (pathList: any) => {
+    const content = await fetchTextFileContent(pathQuestion(pathList));
     const linesArray = content.split('\n').filter(Boolean);
     // Get up to 10 random lines
     const randomLines = getRandomLines(linesArray, 20);
     setLines(randomLines);
     setCurrentSlide(0); // Reset to the first slide when loading new content
-    setIcon_name(path);
+    setIcon_name(pathList);
   };
 
   useEffect(() => {
-      loadTextContent(checkRandomStatus(slideData.path)); // Load content on component mount or when location changes
+      loadTextContent(checkRandomStatus(slideData)); // Load content on component mount or when location changes
   }, [location]);
 
   const endgamepage = async () => {
@@ -84,7 +85,7 @@ const PlayGame: React.FC = () => {
   const handleSlideChange = (swiper: any) => {
     if (swiper.activeIndex >= lines.length) {
       endgamepage();
-        swiper.slideTo(0);
+      swiper.slideTo(0);
     } else {
       setCurrentSlide(swiper.activeIndex);
     }

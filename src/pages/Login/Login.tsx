@@ -28,7 +28,6 @@ import {
           title: 'เข้าสู่ระบบสำเร็จ',
           text: 'คุณเข้าสู่ระบบเรียบร้อยแล้ว!',
           icon: 'success',
-          button: 'ตกลง',
         }).then(() => {
           history.push('/home');
         });
@@ -37,12 +36,9 @@ import {
           title: 'เข้าสู่ระบบล้มเหลว',
           text: 'อีเมลหรือรหัสผ่านไม่ถูกต้อง!',
           icon: 'error',
-          button: 'ลองอีกครั้ง',
         });
       }
-    
-    };
-  
+    };  
     return (
       <IonPage>
         <IonContent color={'main'}>

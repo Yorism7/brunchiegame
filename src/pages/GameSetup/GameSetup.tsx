@@ -21,9 +21,10 @@ const GameSetup: React.FC = () => {
 
   const handleButtonClick = () => {
     if (selectedSlide) {
+      const path = selectedSlide.slideData;
       history.push({
         pathname: '/playgame',
-        state: { path: selectedSlide.slideData }, // Pass the selected slide's data to /playgame
+        state: [path], // Pass the selected slide's data to /playgame
       });
     } else {
       alert('Please select a slide before proceeding.');
@@ -50,30 +51,30 @@ const GameSetup: React.FC = () => {
                   const slideIndex = swiper.activeIndex;
                   const slideData = swiper.slides[slideIndex].querySelector('img')?.getAttribute('alt'); // Get the alt attribute
                   handleSlideChange({ slideData }); // Pass only the alt value
-                }}
+                } }
               >
                 <SwiperSlide>
-                  <div className="slide-content">
+                  <div className="slide-content" onClick={handleButtonClick}>
                     <img src="/card/2-3.png" alt="random" />
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <div className="slide-content">
+                  <div className="slide-content" onClick={handleButtonClick}>
                     <img src="/card/2-4.png" alt="icon-5" />
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <div className="slide-content">
+                  <div className="slide-content" onClick={handleButtonClick}>
                     <img src="/card/2-5.png" alt="icon-2" />
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <div className="slide-content">
+                  <div className="slide-content" onClick={handleButtonClick}>
                     <img src="/card/2-6.png" alt="icon-3" />
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <div className="slide-content">
+                  <div className="slide-content" onClick={handleButtonClick}>
                     <img src="/card/2-7.png" alt="icon-4" />
                   </div>
                 </SwiperSlide>
@@ -83,10 +84,10 @@ const GameSetup: React.FC = () => {
 
           <IonRow>
             <IonCol size="12">
-              <IonButton expand='block' color="light" shape='round' fill='outline' routerLink='/seemore'><b>หมวดจอยทั้งหมด</b></IonButton>
+              <IonButton expand='block' color="light" shape='round' fill='outline' onClick={handleButtonClick}><b>เริ่มค้นใจ</b></IonButton>
             </IonCol>
             <IonCol size="12">
-              <IonButton expand='block' color="light" shape='round' fill='outline' onClick={handleButtonClick}><b>กดค้างเพื่อค้นใจ</b></IonButton>
+              <IonButton expand='block' color="light" shape='round' fill='outline' routerLink='/seemore'><b>All Category</b></IonButton>
             </IonCol>
           </IonRow>
 
