@@ -21,12 +21,16 @@ const GameSetup: React.FC = () => {
 
   const handleButtonClick = () => {
     if (selectedSlide) {
-      const path = selectedSlide.slideData;
+      const path = selectedSlide.slideData ;
       history.push({
         pathname: '/playgame',
         state: [path], // Pass the selected slide's data to /playgame
       });
     } else {
+      history.push({
+        pathname: '/playgame',
+        state: ["random"], // Pass the selected slide's data to /playgame
+      });
       alert('Please select a slide before proceeding.');
     }
   };

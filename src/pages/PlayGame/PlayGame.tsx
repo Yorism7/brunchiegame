@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
+  IonButton,
   IonCol, IonContent, IonGrid,
   IonImg, IonPage, IonRow
 } from '@ionic/react';
@@ -84,7 +85,6 @@ const PlayGame: React.FC = () => {
 
   const handleSlideChange = (swiper: any) => {
     if (swiper.activeIndex >= lines.length) {
-      endgamepage();
       swiper.slideTo(0);
     } else {
       setCurrentSlide(swiper.activeIndex);
@@ -112,7 +112,7 @@ const PlayGame: React.FC = () => {
                 onSlideChange={handleSlideChange}
               >
                 {lines.map((line, index) => (
-                  <SwiperSlide key={index} className='slide'>
+                  <SwiperSlide key={index} className={'slide'+' '+Icon_name}>
                     <h1>{line}</h1> {/* Display the randomly selected line */}
                     <IonImg src='/icon/LOGO.svg' className='TopiconInCard' alt='Slide Image' />
                     <IonImg src={'icon/'+Icon_name+'.svg'} className='seccond-TopiconInCard' alt='Icon' />
@@ -124,6 +124,9 @@ const PlayGame: React.FC = () => {
                   <h1>End of Game</h1>
                 </SwiperSlide>
               </Swiper>
+            </IonCol>
+            <IonCol size="12">
+              <IonButton expand='block' color="main2" shape='round' fill='solid' routerLink='/seemore'><b>All Category</b></IonButton>
             </IonCol>
           </IonRow>
         </IonGrid>

@@ -1,4 +1,22 @@
 
+:root {
+	--ion-color-main2: #F7CE55;
+	--ion-color-main2-rgb: 247,206,85;
+	--ion-color-main2-contrast: #000000;
+	--ion-color-main2-contrast-rgb: 0,0,0;
+	--ion-color-main2-shade: #d9b54b;
+	--ion-color-main2-tint: #f8d366;
+}
+
+.ion-color-main2 {
+	--ion-color-base: var(--ion-color-main2);
+	--ion-color-base-rgb: var(--ion-color-main2-rgb);
+	--ion-color-contrast: var(--ion-color-main2-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-main2-contrast-rgb);
+	--ion-color-shade: var(--ion-color-main2-shade);
+	--ion-color-tint: var(--ion-color-main2-tint);
+}
+
 .mySwiper {
   padding-top: 30px !important;
   width: auto;
@@ -60,22 +78,22 @@
   width: 5em;
   z-index: 3;
 }
-.slide:nth-child(1n) {
+.icon-5 {
   border: 15px solid #e1f9ff;
   background-color: #36cbff;
 }
   
-.slide:nth-child(2n) {
+.icon-2 {
   border: 15px solid #ffe5cc;
   background-color: #ffa645;
 }
   
-.slide:nth-child(3n) {
+.icon-3 {
   border: 15px solid #fffbd2;
   background-color: #f2df2f;
 }
   
-.slide:nth-child(4n) {
+.icon-4 {
   border: 15px solid #fcd9ff;
   background-color: #fa99ff;
 }
