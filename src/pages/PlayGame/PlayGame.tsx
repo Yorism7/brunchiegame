@@ -30,7 +30,7 @@ const PlayGame: React.FC = () => {
   const [lines, setLines] = useState<string[]>([]);
   const history = useHistory();
   const location = useLocation<string[]>();
-  const slideData = location.state.toString() ?? "default";
+  const slideData = location.state ?? "default";
 
   const checkRandomStatus = (status: any) => {
     if(status!='random'){
@@ -75,7 +75,7 @@ const PlayGame: React.FC = () => {
   };
 
   useEffect(() => {
-      loadTextContent(checkRandomStatus(slideData)); // Load content on component mount or when location changes
+      loadTextContent(checkRandomStatus(slideData.toString())); // Load content on component mount or when location changes
   }, [location]);
 
   const endgamepage = async () => {
