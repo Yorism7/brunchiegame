@@ -31,14 +31,14 @@ const PlayGame: React.FC = () => {
   const [lines, setLines] = useState<string[]>([]);
   const history = useHistory();
   const location = useLocation<string[]>();
-  const slideData = location.state ?? ["default"];
+  const slideData = location.state;
 
   const checkRandomStatus = (status: any) => {
-    if(status!='random'){
+    if(status != 'random'){
       return status;
     }
     else{
-       // Create an array of the possible paths
+       // for random ,Create an array of the possible paths
     const paths = [
       'icon-5',
       'icon-2',
@@ -76,7 +76,7 @@ const PlayGame: React.FC = () => {
   };
 
   useEffect(() => {
-      loadTextContent(checkRandomStatus(slideData.toString())); // Load content on component mount or when location changes
+      loadTextContent(checkRandomStatus(slideData)); // Load content on component mount or when location changes
   }, [location]);
 
   const endgamepage = async () => {

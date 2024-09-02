@@ -41,7 +41,8 @@ export default defineConfig({
         // https://sharp.pixelplumbing.com/api-output#jpeg
         quality: 50,
       },
-      cache: true,
+      cache: false,
+      cacheLocation: undefined,
     }),
   ],
   test: {
