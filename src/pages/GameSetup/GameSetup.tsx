@@ -31,7 +31,6 @@ const GameSetup: React.FC = () => {
         pathname: '/playgame',
         state: "random", // Pass the selected slide's data to /playgame
       });
-      alert('Please select a slide before proceeding.');
     }
   };
 

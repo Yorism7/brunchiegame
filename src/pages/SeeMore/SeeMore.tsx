@@ -20,7 +20,7 @@ const SeeMore: React.FC = () => {
                 <Link 
                   to={{
                     pathname: "/playgame",
-                    state: ["random"]  // Pass the alt value as state
+                    state: "random"  // Pass the alt value as state
                   }}
                 >
                   <img src="/card/2-3.png" alt="random" />
@@ -32,7 +32,7 @@ const SeeMore: React.FC = () => {
                 <Link 
                   to={{
                     pathname: "/playgame",
-                    state: ["icon-5"]  // Pass the alt value as state
+                    state: "icon-5"  // Pass the alt value as state
                   }}
                 >
                   <img src="/card/2-4.png" alt="icon-5" />
@@ -44,7 +44,7 @@ const SeeMore: React.FC = () => {
                 <Link 
                   to={{
                     pathname: "/playgame",
-                    state: ["icon-2"]  // Pass the alt value as state
+                    state: "icon-2"  // Pass the alt value as state
                   }}
                 >
                   <img src="/card/2-5.png" alt="icon-2" />
@@ -56,7 +56,7 @@ const SeeMore: React.FC = () => {
                 <Link 
                   to={{
                     pathname: "/playgame",
-                    state: ["icon-3"]  // Pass the alt value as state
+                    state: "icon-3"  // Pass the alt value as state
                   }}
                 >
                   <img src="/card/2-6.png" alt="icon-3" />
@@ -68,7 +68,7 @@ const SeeMore: React.FC = () => {
                 <Link 
                   to={{
                     pathname: "/playgame",
-                    state: ["icon-4"]  // Pass the alt value as state
+                    state: "icon-4"  // Pass the alt value as state
                   }}
                 >
                   <img src="/card/2-7.png" alt="icon-4" />
