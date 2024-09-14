@@ -82,8 +82,8 @@ const SeeMore: React.FC = () => {
                     pathname: "/playgame",
                     state: "icon-6"  // Pass the alt value as state
                   }}
-                >
-                  <img src="/card/2-3.png" alt="icon-6" />
+                 >
+                  <img src="/card/2-8.png" alt="icon-6" />
                 </Link>
               </IonCard>
             </IonCol>

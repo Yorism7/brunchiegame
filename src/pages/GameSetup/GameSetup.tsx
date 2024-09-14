@@ -83,7 +83,7 @@ const GameSetup: React.FC = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                   <div className="slide-content" onClick={handleButtonClick}>
-                    <img src="/card/2-3.png" alt="icon-6" />
+                    <img src="/card/2-8.png" alt="icon-6" />
                   </div>
                 </SwiperSlide>
               </Swiper>
