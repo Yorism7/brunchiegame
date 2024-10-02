@@ -50,8 +50,8 @@ import {
             text: 'คุณเข้าสู่ระบบเรียบร้อยแล้ว!',
             icon: 'success',
           }).then(() => {
-            history.push('/home'); // Navigate to home page
-            location.reload();
+            history.replace('/home'); // Navigate to home page
+            window.location.replace('/');
           });
         }
       }
@@ -93,7 +93,7 @@ import {
                 className="form_login"
                 placeholder="Email"
                 value={email}
-                onIonChange={(e) => setEmail(e.detail.value!)}
+                onIonInput={(e) => setEmail(e.detail.value!)}
                 autocomplete="off"
               ></IonInput>
             </IonRow>
@@ -103,7 +103,7 @@ import {
                 className="form_login"
                 placeholder="Password"
                 value={password}
-                onIonChange={(e) => setPassword(e.detail.value!)}
+                onIonInput={(e) => setPassword(e.detail.value!)}
                 autocomplete="off"
               ></IonInput>
             </IonRow>
