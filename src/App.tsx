@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react'; // Import useEffect and useState
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
@@ -39,34 +40,50 @@ import PlayGame from './pages/PlayGame/PlayGame';
 import EndGame from './pages/EndGame/EndGame';
 
 setupIonicReact();
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/login">
-          <Login />
-        </Route>
-        <Route exact path="/gamesetup">
-          <GameSetup />
-        </Route>
-        <Route exact path="/seemore">
-          <SeeMore />
-        </Route>
-        <Route exact path="/playgame">
-          <PlayGame />
-        </Route>
-        <Route exact path="/endgame">
-          <EndGame />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/login" />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+
+const App: React.FC = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null); // Check session state
+
+  useEffect(() => {
+    const userSession = localStorage.getItem('userSession');
+    setIsAuthenticated(!!userSession); // Set to true if session exists, otherwise false
+  }, []);
+
+  // Show a loading state while checking authentication
+  if (isAuthenticated === null) {
+    return null; // or a loading spinner/component
+  }
+
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route exact path="/home">
+            {isAuthenticated ? <Home /> : <Redirect to="/login" />}
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/gamesetup">
+            {isAuthenticated ? <GameSetup /> : <Redirect to="/login" />}
+          </Route>
+          <Route exact path="/seemore">
+            {isAuthenticated ? <SeeMore /> : <Redirect to="/login" />}
+          </Route>
+          <Route exact path="/playgame">
+            {isAuthenticated ? <PlayGame /> : <Redirect to="/login" />}
+          </Route>
+          <Route exact path="/endgame">
+            {isAuthenticated ? <EndGame /> : <Redirect to="/login" />}
+          </Route>
+          <Route exact path="/">
+            <Redirect to="/login" />
+          </Route>
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
+  );
+};
+
 
 export default App;

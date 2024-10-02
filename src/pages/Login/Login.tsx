@@ -12,6 +12,7 @@ import {
   import React, { useState } from 'react';
   import { useHistory } from 'react-router-dom';
   import Swal from 'sweetalert';
+  import axios from 'axios';
   import './Login.css';
   
   const Login: React.FC = () => {
@@ -19,26 +20,52 @@ import {
     const [password, setPassword] = useState<string>('');
     const history = useHistory();
   
-    const handleLogin = () => {
-      const correctEmail = 'admin';
-      const correctPassword = 'admin';
-  
-      if (email === correctEmail && password === correctPassword) {
+    const handleLogin = async () => {
+      
+      const siteUrl = 'http://brunchtime.org'; // Your WordPress site URL
+      const username = email; // Assuming email is used as username
+      const appPassword = password; // Use the application password here
+
+    try {
+      const response = await axios.get(`${siteUrl}/wp-json/wp/v2/posts`, {
+        auth: {
+          username: username,
+          password: appPassword,
+        },
+      });
+
+      // Successful login logic
+      if (response.status === 200) {
+        localStorage.setItem('userSession', JSON.stringify({ username })); // Save username or other data
         Swal({
           title: 'เข้าสู่ระบบสำเร็จ',
           text: 'คุณเข้าสู่ระบบเรียบร้อยแล้ว!',
           icon: 'success',
         }).then(() => {
-          history.push('/home');
-        });
-      } else {
-        Swal({
-          title: 'เข้าสู่ระบบล้มเหลว',
-          text: 'อีเมลหรือรหัสผ่านไม่ถูกต้อง!',
-          icon: 'error',
+          history.push('/home'); // Navigate to home page
         });
       }
-    };  
+    } 
+    catch (error) {
+      // Handle login failure
+      Swal({
+        title: 'เข้าสู่ระบบล้มเหลว',
+        text: 'อีเมลหรือรหัสผ่านไม่ถูกต้อง!',
+        icon: 'error',
+      });
+    }
+  };
+
+  const handleGuestLogin = () => {
+    Swal({
+      title: 'เข้าสู่ระบบสำเร็จ',
+      text: 'คุณเข้าสู่ระบบเรียบร้อยแล้ว!',
+      icon: 'success',
+    }).then(() => {
+      localStorage.setItem('userSession', 'guest'); // Set session for guest
+      history.push('/home'); // Redirect to home
+    });
+  };
     return (
       <IonPage>
         <IonContent color={'main'}>
@@ -97,7 +124,7 @@ import {
                   color="light"
                   shape="round"
                   fill="outline"
-                  routerLink="/gamesetup"
+                  onClick={handleGuestLogin} // Use handleGuestLogin
                 >
                   <b>guest</b>
                 </IonButton>
