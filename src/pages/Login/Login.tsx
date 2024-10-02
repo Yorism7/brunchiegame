@@ -36,7 +36,8 @@ import {
       const appPassword = password; // Use the application password here
       
       try {
-        const response = await axios.post('/api/mo-jwt', {
+        // const response = await axios.post('/api/mo-jwt', {
+        const response = await axios.post('https://brunchtime.org/wp-json/api/v1/mo-jwt', {
           username: appUsername,
           password: appPassword
         });
