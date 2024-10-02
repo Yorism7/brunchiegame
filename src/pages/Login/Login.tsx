@@ -22,39 +22,38 @@ import {
   
     const handleLogin = async () => {
       
-      const siteUrl = 'http://brunchtime.org'; // Your WordPress site URL
-      const username = email; // Assuming email is used as username
+      const siteUrl = 'https://brunchtime.org'; // Updated to HTTPS
+      const appUsername = email; // Assuming email is used as username
       const appPassword = password; // Use the application password here
 
-    try {
-      const response = await axios.get(`${siteUrl}/wp-json/wp/v2/posts`, {
-        auth: {
-          username: username,
-          password: appPassword,
-        },
-      });
+      try {
+        const response = await axios.post('/api/mo-jwt', {
+          username: appUsername,
+          password: appPassword
+        });
 
-      // Successful login logic
-      if (response.status === 200) {
-        localStorage.setItem('userSession', JSON.stringify({ username })); // Save username or other data
+        // Successful login logic
+        if (response.status === 200) {
+          localStorage.setItem('userSession', JSON.stringify({ username: appUsername })); // Save username or other data
+          Swal({
+            title: 'เข้าสู่ระบบสำเร็จ',
+            text: 'คุณเข้าสู่ระบบเรียบร้อยแล้ว!',
+            icon: 'success',
+          }).then(() => {
+            history.push('/home'); // Navigate to home page
+          });
+        }
+      }
+      catch (error) {
+        // Handle login failure
+        console.error("Login error:", error);
         Swal({
-          title: 'เข้าสู่ระบบสำเร็จ',
-          text: 'คุณเข้าสู่ระบบเรียบร้อยแล้ว!',
-          icon: 'success',
-        }).then(() => {
-          history.push('/home'); // Navigate to home page
+          title: 'เข้าสู่ระบบล้มเหลว',
+          text: 'อีเมลหรือรหัสผ่านไม่ถูกต้อง!',
+          icon: 'error',
         });
       }
-    } 
-    catch (error) {
-      // Handle login failure
-      Swal({
-        title: 'เข้าสู่ระบบล้มเหลว',
-        text: 'อีเมลหรือรหัสผ่านไม่ถูกต้อง!',
-        icon: 'error',
-      });
-    }
-  };
+    };
 
   const handleGuestLogin = () => {
     Swal({

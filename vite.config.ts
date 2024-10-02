@@ -45,6 +45,15 @@ export default defineConfig({
       cacheLocation: undefined,
     }),
   ],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://brunchtime.org/wp-json/api/v1',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''), // remove /api prefix when forwarding
+      },
+    },
+  },
   test: {
     globals: true,
     environment: 'jsdom',
