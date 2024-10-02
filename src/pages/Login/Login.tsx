@@ -35,9 +35,7 @@ import {
       const appUsername = email; // Assuming email is used as username
       const appPassword = password; // Use the application password here
       
-      console.log('step2 user'+email+' /pass : '+password);
       try {
-        console.log('step2 user'+appUsername+' /pass : '+appPassword);
         const response = await axios.post('/api/mo-jwt', {
           username: appUsername,
           password: appPassword
