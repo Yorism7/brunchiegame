@@ -145,12 +145,12 @@ import {
                 </IonButton>
               </IonCol>
             </IonRow>
-            <IonRow>
+            {/* <IonRow>
               <IonCol className="sub_login">
                 <IonImg className="sub_login" src="/icon/line.png"></IonImg>
                 <IonImg className="sub_login" src="/icon/facebook.png"></IonImg>
               </IonCol>
-            </IonRow>
+            </IonRow> */}
             <IonRow>
               <IonCol size="12">
                 <IonImg className="footer" src="/icon/logo_footer.png"></IonImg>
