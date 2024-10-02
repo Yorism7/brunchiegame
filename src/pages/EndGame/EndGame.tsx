@@ -6,10 +6,17 @@ import MyFooter from "../../components/MyFooter/MyFooter";
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 import './style.css';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const EndGame: React.FC = () => {
-    return (
+
+  const history = useHistory();
+
+  const joyagain = async () => {
+    return history.replace('/home');
+  };
+ 
+  return (
     <IonPage>
       <IonContent color='main'>
         <IonGrid>
@@ -17,9 +24,9 @@ const EndGame: React.FC = () => {
             <IonImg className='JoyAgain' src='icon/end-text.svg'></IonImg>
           </IonRow>
           <IonRow>
-            <Link className='JoyAgain' to="/gamesetup">
+            <div className='JoyAgain' onClick={joyagain}>
                 <IonImg src='icon/JoyAgain.svg'></IonImg>
-            </Link>
+            </div>
           </IonRow>
           <IonRow>
             <IonCol size="12">
