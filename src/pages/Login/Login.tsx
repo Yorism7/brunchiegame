@@ -65,6 +65,9 @@ import {
       history.push('/home'); // Redirect to home
     });
   };
+  const handleRegisterClick = () => {
+    history.push('/register'); // Navigate to the register page
+  };
     return (
       <IonPage>
         <IonContent color={'main'}>
@@ -143,7 +146,7 @@ import {
             <IonRow className="ion-padding-top">
               <IonCol>
                 <div className="forgotpass">
-                  Don’t have an account? <a href="?">Register</a>
+                  Don’t have an account?<a href="/register" onClick={handleRegisterClick}>Register</a>
                 </div>
               </IonCol>
             </IonRow>

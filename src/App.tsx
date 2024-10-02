@@ -38,6 +38,7 @@ import GameSetup from './pages/GameSetup/GameSetup';
 import SeeMore from './pages/SeeMore/SeeMore';
 import PlayGame from './pages/PlayGame/PlayGame';
 import EndGame from './pages/EndGame/EndGame';
+import Register from './pages/Register/Register';
 
 setupIonicReact();
 
@@ -63,6 +64,9 @@ const App: React.FC = () => {
           </Route>
           <Route exact path="/login">
             <Login />
+          </Route>
+          <Route exact path="/register">
+            <Register />
           </Route>
           <Route exact path="/gamesetup">
             {isAuthenticated ? <GameSetup /> : <Redirect to="/login" />}
