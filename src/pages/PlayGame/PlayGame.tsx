@@ -43,7 +43,8 @@ const PlayGame: React.FC = () => {
       'icon-5',
       'icon-2',
       'icon-3',
-      'icon-4'
+      'icon-4',
+      'icon-6'
     ];
     // Select a random index from the paths array
     const randomIndex = Math.floor(Math.random() * paths.length);
@@ -61,6 +62,8 @@ const PlayGame: React.FC = () => {
         return '/txt/question3.txt';
       case 'icon-4':
         return '/txt/question4.txt';
+      case 'icon-6':
+        return '/txt/question6.txt';
       default:
         return '/txt/no_more.txt';
     }

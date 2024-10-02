@@ -75,6 +75,18 @@ const SeeMore: React.FC = () => {
                 </Link>
               </IonCard>
             </IonCol>
+            <IonCol size="6">
+              <IonCard className="custom-card">
+                <Link 
+                  to={{
+                    pathname: "/playgame",
+                    state: "icon-6"  // Pass the alt value as state
+                  }}
+                 >
+                  <img src="/card/2-8.png" alt="icon-6" />
+                </Link>
+              </IonCard>
+            </IonCol>
           </IonRow>
         </IonGrid>
       </IonContent>
