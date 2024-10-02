@@ -36,7 +36,8 @@ const Register: React.FC = () => {
             return;
         }else{
 
-        const response = await axios.post('api/mo-jwt-register', {
+        // const response = await axios.post('api/mo-jwt-register', {
+          const response = await axios.post(`https://brunchtime.org/wp-json/api/v1/mo-jwt`, {
           apikey : 'VZtfDKKhHoXoPwaDUcZOOpTuMYWEuBYV',
           username : username,
           password : password,
