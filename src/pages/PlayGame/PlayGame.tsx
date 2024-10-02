@@ -85,8 +85,11 @@ const PlayGame: React.FC = () => {
       loadTextContent(checkRandomStatus(slideData)); // Load content on component mount or when location changes
   }, [location]);
 
+  const seemorepage = async () => {
+    return history.replace('/seemore');
+  };
   const endgamepage = async () => {
-    return history.replace('/endgame');
+    return history.push('/endgame');
   };
 
   const handleSlideChange = (swiper: any) => {
@@ -133,7 +136,7 @@ const PlayGame: React.FC = () => {
               </Swiper>
             </IonCol>
             <IonCol size="12">
-              <IonButton expand='block' color="main2" shape='round' fill='solid' routerLink='/seemore'><b>All Category</b></IonButton>
+              <IonButton expand='block' color="main2" shape='round' fill='solid' onClick={seemorepage}><b>All Category</b></IonButton>
             </IonCol>
           </IonRow>
         </IonGrid>

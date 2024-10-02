@@ -23,7 +23,7 @@ const EndGame: React.FC = () => {
           </IonRow>
           <IonRow>
             <IonCol size="12">
-              <IonButton expand='block' color="light" shape='round' fill='outline' routerLink='/playgame'><b>ให้คะแนนเรา</b></IonButton>
+              <IonButton expand='block' color="light" shape='round' fill='outline' routerLink='/home'><b>ให้คะแนนเรา</b></IonButton>
               <IonButton expand='block' color="light" shape='round' fill='outline' href='https://www.brunchtimeshop.com/'><b>สนับสนุนเรา</b></IonButton>
             </IonCol>
           </IonRow>
