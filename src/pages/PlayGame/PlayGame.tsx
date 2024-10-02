@@ -86,12 +86,13 @@ const PlayGame: React.FC = () => {
   }, [location]);
 
   const endgamepage = async () => {
-    return history.push('/endgame');
+    return history.replace('/endgame');
   };
 
   const handleSlideChange = (swiper: any) => {
     if (swiper.activeIndex >= lines.length) {
       swiper.slideTo(0);
+      endgamepage();
     } else {
       setCurrentSlide(swiper.activeIndex);
     }
