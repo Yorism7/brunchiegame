@@ -9,7 +9,7 @@ import {
     IonCol,
     IonImg,
   } from '@ionic/react';
-  import React, { useState } from 'react';
+  import React, { useEffect, useState } from 'react';
   import { useHistory } from 'react-router-dom';
   import Swal from 'sweetalert';
   import axios from 'axios';
@@ -19,14 +19,26 @@ import {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const history = useHistory();
-  
+    
+    useEffect(() => {
+      const userSession = localStorage.getItem('userSession');
+      if (!userSession) {
+        history.push('/login');
+      } else {
+      history.push('/home');
+    }
+
+    }, [history]);
+    
     const handleLogin = async () => {
       
       const siteUrl = 'https://brunchtime.org'; // Updated to HTTPS
       const appUsername = email; // Assuming email is used as username
       const appPassword = password; // Use the application password here
-
+      
+      console.log('step2 user'+email+' /pass : '+password);
       try {
+        console.log('step2 user'+appUsername+' /pass : '+appPassword);
         const response = await axios.post('/api/mo-jwt', {
           username: appUsername,
           password: appPassword
@@ -41,6 +53,7 @@ import {
             icon: 'success',
           }).then(() => {
             history.push('/home'); // Navigate to home page
+            location.reload();
           });
         }
       }
