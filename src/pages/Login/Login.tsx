@@ -32,7 +32,6 @@ import {
     
     const handleLogin = async () => {
       
-      const siteUrl = 'https://brunchtime.org'; // Updated to HTTPS
       const appUsername = email; // Assuming email is used as username
       const appPassword = password; // Use the application password here
       
