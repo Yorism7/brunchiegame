@@ -78,7 +78,7 @@ const Register: React.FC = () => {
               className="form_login"
               placeholder="Name"
               value={name}
-              onIonChange={(e) => setName(e.detail.value!)}
+              onIonInput={(e) => setName(e.detail.value!)}
               autocomplete="off"
             />
           </IonRow>
@@ -87,7 +87,7 @@ const Register: React.FC = () => {
               className="form_login"
               placeholder="Username" // Changed from Email to Username
               value={username} // Updated state variable
-              onIonChange={(e) => setUsername(e.detail.value!)} // Updated state function
+              onIonInput={(e) => setUsername(e.detail.value!)} // Updated state function
               autocomplete="off"
             />
           </IonRow>
@@ -97,7 +97,7 @@ const Register: React.FC = () => {
               className="form_login"
               placeholder="Password"
               value={password}
-              onIonChange={(e) => setPassword(e.detail.value!)}
+              onIonInput={(e) => setPassword(e.detail.value!)}
               autocomplete="off"
             />
           </IonRow>
@@ -107,7 +107,7 @@ const Register: React.FC = () => {
               className="form_login"
               placeholder="Confirm Password" // New input for confirming password
               value={confirmPassword} // State for confirm password
-              onIonChange={(e) => setConfirmPassword(e.detail.value!)} // Update state
+              onIonInput={(e) => setConfirmPassword(e.detail.value!)} // Update state
               autocomplete="off"
             />
           </IonRow>
