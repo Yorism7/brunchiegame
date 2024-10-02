@@ -74,6 +74,7 @@ import {
     }).then(() => {
       localStorage.setItem('userSession', 'guest'); // Set session for guest
       history.push('/home'); // Redirect to home
+      window.location.replace('/');
     });
   };
   const handleRegisterClick = () => {
