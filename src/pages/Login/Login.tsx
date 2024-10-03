@@ -158,7 +158,7 @@ import {
             <IonRow className="ion-padding-top">
               <IonCol>
                 <div className="forgotpass">
-                  Don’t have an account?<a href="/register" onClick={handleRegisterClick}>Register</a>
+                  Don’t have an account?<span className='link' onClick={handleRegisterClick}>Register</span>
                 </div>
               </IonCol>
             </IonRow>

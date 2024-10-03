@@ -37,7 +37,7 @@ const Register: React.FC = () => {
         }else{
 
         // const response = await axios.post('api/mo-jwt-register', {
-          const response = await axios.post(`https://brunchtime.org/wp-json/api/v1/mo-jwt`, {
+          const response = await axios.post(`https://brunchtime.org/wp-json/api/v1/mo-jwt-register`, {
           apikey : 'VZtfDKKhHoXoPwaDUcZOOpTuMYWEuBYV',
           username : username,
           password : password,
@@ -50,7 +50,7 @@ const Register: React.FC = () => {
             text: 'คุณได้ลงทะเบียนเรียบร้อยแล้ว!',
             icon: 'success',
           }).then(() => {
-            history.push('/login'); // Navigate to login page after successful registration
+            window.location.replace('/'); // Navigate to login page after successful registration
           });
         }
     }
@@ -126,7 +126,7 @@ const Register: React.FC = () => {
           <IonRow>
             <IonCol size="12">
               <IonText>
-                Already have an account? <a href="#" onClick={() => history.push('/login')}>Login</a>
+                Already have an account? <span className='link' onClick={() => history.push('/login')}>Login</span>
               </IonText>
             </IonCol>
           </IonRow>
