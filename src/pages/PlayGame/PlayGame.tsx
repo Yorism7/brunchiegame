@@ -53,8 +53,6 @@ const PlayGame: React.FC = () => {
         return '/txt/question3.txt';
       case 'icon-4':
         return '/txt/question4.txt';
-      case 'icon-6':
-        return '/txt/question6.txt';
       case 'icon-7':
         return '/txt/question7.txt';
       default:
