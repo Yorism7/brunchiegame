@@ -39,17 +39,7 @@ const PlayGame: React.FC = () => {
     }
     else{
        // for random ,Create an array of the possible paths
-    const paths = [
-      'icon-5',
-      'icon-2',
-      'icon-3',
-      'icon-4',
-      'icon-6',
-      'icon-7'
-    ];
-    // Select a random index from the paths array
-    const randomIndex = Math.floor(Math.random() * paths.length);
-    return paths[randomIndex];
+      return history.replace('/randomcard');;
     }
   }
   
