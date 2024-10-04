@@ -39,6 +39,7 @@ import SeeMore from './pages/SeeMore/SeeMore';
 import PlayGame from './pages/PlayGame/PlayGame';
 import EndGame from './pages/EndGame/EndGame';
 import Register from './pages/Register/Register';
+import RandomCard from './pages/RandomCard/RandomCard';
 
 setupIonicReact();
 
@@ -76,6 +77,9 @@ const App: React.FC = () => {
           </Route>
           <Route exact path="/playgame">
             {isAuthenticated ? <PlayGame /> : <Redirect to="/login" />}
+          </Route>
+          <Route exact path="/randomcard">
+            {isAuthenticated ? <RandomCard /> : <Redirect to="/login" />}
           </Route>
           <Route exact path="/endgame">
             {isAuthenticated ? <EndGame /> : <Redirect to="/login" />}
