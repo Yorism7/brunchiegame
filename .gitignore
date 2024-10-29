@@ -8,6 +8,12 @@
 # testing
 /coverage
 
+#environment
+.env
+.env.local
+.env.production
+.env.development
+
 # production
 /dist
 

@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 
 const Home: React.FC = () => {
+  
   const showCustomAlert = (title: string, content: string[]) => {
     const htmlContent = `
       <div style="text-align: left;">

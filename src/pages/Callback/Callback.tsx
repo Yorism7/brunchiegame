@@ -1,109 +1,120 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { IonContent, IonHeader, IonPage, IonTitle, IonButton, IonLoading, IonToast } from '@ionic/react';
+import {
+  IonPage,
+  IonContent,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent,
+  IonButton,
+  IonIcon,
+  IonSpinner,
+  IonText,
+  IonAlert,
+} from '@ionic/react';
+import { checkmarkCircle, closeCircle, arrowBack } from 'ionicons/icons';
 import { validateState, exchangeCodeForToken } from '../../utils/lineAuth';
-
-interface CallbackState {
-  status: 'loading' | 'error' | 'success';
-  message: string;
-  details?: string;
-}
 
 const Callback: React.FC = () => {
   const history = useHistory();
-  const [state, setState] = useState<CallbackState>({
-    status: 'loading',
-    message: 'Authenticating with LINE...',
-  });
-  const [showToast, setShowToast] = useState(false);
-  
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
-    const processCallback = async () => {
-      try {
-        const params = new URLSearchParams(window.location.search);
-        const error = params.get('error');
-        const errorDescription = params.get('error_description');
-        const code = params.get('code');
-        const stateParam = params.get('state');
+    handleLineCallback();
+  }, []);
+  const delay = (ms: number): Promise<void> => new Promise(resolve => setTimeout(resolve, ms));
 
-        // Check for LINE auth errors
-        if (error) {
-          throw new Error(errorDescription || 'LINE authentication failed');
-        }
-
-        // Validate required parameters
-        if (!code || !stateParam) {
-          throw new Error('Missing required authentication parameters');
-        }
-
-        // Validate state to prevent CSRF attacks
-        if (!validateState(stateParam)) {
-          throw new Error('Invalid state parameter - possible CSRF attack');
-        }
-
-        // Exchange code for access token
-        await exchangeCodeForToken(code);
-
-        setState({
-          status: 'success',
-          message: 'Successfully authenticated with LINE!',
-          details: 'Redirecting you to the dashboard...',
-        });
-
-        // Redirect to home page after successful authentication
-        setTimeout(() => {
-          history.replace('/home', { replace: true });
-        }, 1500);
-      } catch (error) {
-        setState({
-          status: 'error',
-          message: 'Authentication failed',
-          details:
-            error instanceof Error
-              ? error.message
-              : 'An unexpected error occurred',
-        });
-
-        // Redirect back to login page after error
-        setTimeout(() => {
-          history.replace('/', { replace: true });
-        }, 3000);
+  const handleLineCallback = async () => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get('code');
+      const state = params.get('state');
+      setError(null)
+      
+      if (!code || !state) {
+        throw new Error('Missing authentication parameters');
       }
-    };
 
-    processCallback();
-  }, [history]);
+      if (!validateState(state)) {
+        throw new Error('Invalid state parameter');
+      }
+
+      await exchangeCodeForToken(code);
+      setIsSuccess(true);
+      
+      // await delay(1500);
+      // Redirect after success
+      setTimeout(() => {
+        window.location.replace('/');
+      }, 1500);
+      
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Authentication failed');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonTitle>Callback</IonTitle>
-      </IonHeader>
-      <IonContent className="ion-padding">
-        {state.status === 'loading' && (
-          <IonLoading isOpen={true} message={'Authenticating...'} />
-        )}
-        {state.status !== 'loading' && (
-          <div className={`text-center ${state.status === 'error' ? 'text-red-600' : 'text-green-600'}`}>
-            <h2 className="font-semibold text-xl">{state.message}</h2>
-            {state.details && <p className="text-sm">{state.details}</p>}
-            {state.status === 'error' && (
-              <IonButton
-                expand="full"
-                color="danger"
-                onClick={() => history.replace('/')}
-              >
-                Return to Login
-              </IonButton>
-            )}
-          </div>
-        )}
-        <IonToast
-          isOpen={showToast}
-          onDidDismiss={() => setShowToast(false)}
-          message={state.message}
-          duration={3000}
-        />
+      <IonContent className="ion-padding" color="light">
+        <div className="h-full flex items-center justify-center">
+          <IonCard className="max-w-md w-full mx-4">
+            <IonCardHeader className="text-center">
+              <IonCardTitle className="text-xl">
+                LINE Authentication
+              </IonCardTitle>
+            </IonCardHeader>
+
+            <IonCardContent className="text-center">
+              {isLoading ? (
+                <div className="py-8">
+                  <IonSpinner name="circular" />
+                  <IonText>
+                    <p className="mt-4">Verifying your authentication...</p>
+                  </IonText>
+                </div>
+              ) : isSuccess ? (
+                <div className="py-8">
+                  <IonIcon
+                    icon={checkmarkCircle}
+                    color="success"
+                    style={{ fontSize: '48px' }}
+                  />
+                  <IonText color="success">
+                    <h2 className="mt-4 font-bold">Authentication Successful!</h2>
+                    <p className="mt-2">Redirecting to dashboard...</p>
+                  </IonText>
+                </div>
+              ) : (
+                <div className="py-8">
+                  <IonIcon
+                    icon={closeCircle}
+                    color="danger"
+                    style={{ fontSize: '48px' }}
+                  />
+                  <IonText color="danger">
+                    <h2 className="mt-4 font-bold">Authentication Failed</h2>
+                    <p className="mt-2">{error}</p>
+                  </IonText>
+                  <IonButton
+                    expand="block"
+                    color="medium"
+                    className="mt-4"
+                    onClick={() => history.replace('/')}
+                  >
+                    <IonIcon slot="start" icon={arrowBack} />
+                    Return to Login
+                  </IonButton>
+                </div>
+              )}
+            </IonCardContent>
+          </IonCard>
+        </div>
+
       </IonContent>
     </IonPage>
   );

@@ -16,6 +16,7 @@ const validateEnv = () => {
   });
 
   if (!result.success) {
+    console.error('Environment validation errors:', result.error);
     throw new Error('Missing or invalid environment variables');
   }
 
@@ -31,7 +32,9 @@ const getLineConfig = () => {
     stateKey: env.VITE_LINE_STATE_KEY,
   };
 };
-
+//debug
+console.log('Environment:', import.meta.env);
+console.log('Config:', getLineConfig());
 export const generateState = () => {
   const config = getLineConfig();
   const state = Math.random().toString(36).substring(7);

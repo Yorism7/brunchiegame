@@ -23,10 +23,12 @@ import { getLineLoginUrl } from '../../utils/lineAuth';
     
     useEffect(() => {
       const userSession = localStorage.getItem('userSession');
-      if (!userSession) {
+      const token = localStorage.getItem('line_access_token');
+      if (userSession || token) {
+        history.push('/home');
+      }
+       else {
         history.push('/login');
-      } else {
-      history.push('/home');
     }
 
     }, [history]);
