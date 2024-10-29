@@ -30,7 +30,8 @@
     "react-router": "^5.3.4",
     "react-router-dom": "^5.3.4",
     "sweetalert": "^2.1.2",
-    "swiper": "11.1.10"
+    "swiper": "11.1.10",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@capacitor/cli": "6.1.2",

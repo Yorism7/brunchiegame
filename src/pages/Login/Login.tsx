@@ -14,6 +14,7 @@ import {
   import Swal from 'sweetalert';
   import axios from 'axios';
   import './Login.css';
+import { getLineLoginUrl } from '../../utils/lineAuth';
   
   const Login: React.FC = () => {
     const [email, setEmail] = useState<string>('');
@@ -30,41 +31,57 @@ import {
 
     }, [history]);
     
-    const handleLogin = async () => {
-      
-      const appUsername = email; // Assuming email is used as username
-      const appPassword = password; // Use the application password here
-      
-      try {
-        // const response = await axios.post('/api/mo-jwt', {
-        const response = await axios.post('https://brunchtime.org/wp-json/api/v1/mo-jwt', {
-          username: appUsername,
-          password: appPassword
-        });
+  const handleLogin = async () => {
+    
+    const appUsername = email; // Assuming email is used as username
+    const appPassword = password; // Use the application password here
+    
+    try {
+      // const response = await axios.post('/api/mo-jwt', {
+      const response = await axios.post('https://brunchtime.org/wp-json/api/v1/mo-jwt', {
+        username: appUsername,
+        password: appPassword
+      });
 
-        // Successful login logic
-        if (response.status === 200) {
-          localStorage.setItem('userSession', JSON.stringify({ username: appUsername })); // Save username or other data
-          Swal({
-            title: 'เข้าสู่ระบบสำเร็จ',
-            text: 'คุณเข้าสู่ระบบเรียบร้อยแล้ว!',
-            icon: 'success',
-          }).then(() => {
-            history.replace('/home'); // Navigate to home page
-            window.location.replace('/');
-          });
-        }
-      }
-      catch (error) {
-        // Handle login failure
-        console.error("Login error:", error);
+      // Successful login logic
+      if (response.status === 200) {
+        localStorage.setItem('userSession', JSON.stringify({ username: appUsername })); // Save username or other data
         Swal({
-          title: 'เข้าสู่ระบบล้มเหลว',
-          text: 'อีเมลหรือรหัสผ่านไม่ถูกต้อง!',
-          icon: 'error',
+          title: 'เข้าสู่ระบบสำเร็จ',
+          text: 'คุณเข้าสู่ระบบเรียบร้อยแล้ว!',
+          icon: 'success',
+        }).then(() => {
+          history.replace('/home'); // Navigate to home page
+          window.location.replace('/');
         });
       }
-    };
+    }
+    catch (error) {
+      // Handle login failure
+      console.error("Login error:", error);
+      Swal({
+        title: 'เข้าสู่ระบบล้มเหลว',
+        text: 'อีเมลหรือรหัสผ่านไม่ถูกต้อง!',
+        icon: 'error',
+      });
+    }
+  };
+
+  const handleLineLogin = () => {
+    // Add your LINE login logic here
+    try {
+      const loginUrl = getLineLoginUrl();
+      window.location.href = loginUrl; // Redirect to LINE login
+    } catch (err) {
+      // Handle login failure
+      Swal({
+        title: 'เข้าสู่ระบบล้มเหลว',
+        text: 'Please check environment configuration!',
+        icon: 'error',
+      });
+      console.error('LINE login error:', err);
+    }
+  };
 
   const handleGuestLogin = () => {
     Swal({
@@ -131,6 +148,20 @@ import {
                 </IonButton>
               </IonCol>
             </IonRow>
+             {/* LINE Login Button */}
+             <IonRow>
+              <IonCol>
+                <IonButton
+                  expand="block"
+                  color="success"
+                  className="line-login-button"
+                  onClick={handleLineLogin}
+                >
+                  <IonImg src="/icon/line.png" style={{ width: '20px', marginRight: '8px' }} />
+                  LINE
+                </IonButton>
+              </IonCol>
+            </IonRow>
             <IonRow>
               <IonCol size="12">
                 <IonButton
@@ -144,6 +175,7 @@ import {
                 </IonButton>
               </IonCol>
             </IonRow>
+            
             {/* <IonRow>
               <IonCol className="sub_login">
                 <IonImg className="sub_login" src="/icon/line.png"></IonImg>

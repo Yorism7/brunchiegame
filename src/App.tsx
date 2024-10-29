@@ -40,6 +40,7 @@ import PlayGame from './pages/PlayGame/PlayGame';
 import EndGame from './pages/EndGame/EndGame';
 import Register from './pages/Register/Register';
 import RandomCard from './pages/RandomCard/RandomCard';
+import Callback from './pages/Callback/Callback';
 
 setupIonicReact();
 
@@ -47,8 +48,15 @@ const App: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null); // Check session state
 
   useEffect(() => {
+    // Check for LINE token in local storage
+    const token = localStorage.getItem('line_access_token');
+    // Check for Basic token in local storage
     const userSession = localStorage.getItem('userSession');
-    setIsAuthenticated(!!userSession); // Set to true if session exists, otherwise false
+    if (token || userSession) {
+      setIsAuthenticated(true); // User is authenticated
+    } else {
+      setIsAuthenticated(false); // User is not authenticated
+    }
   }, []);
 
   // Show a loading state while checking authentication
@@ -65,6 +73,9 @@ const App: React.FC = () => {
           </Route>
           <Route exact path="/login">
             <Login />
+          </Route>
+          <Route exact path="/callback">
+            <Callback />
           </Route>
           <Route exact path="/register">
             <Register />
