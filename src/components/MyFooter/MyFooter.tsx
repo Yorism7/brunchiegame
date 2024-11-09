@@ -70,7 +70,7 @@ const MyFooter: React.FC = () => {
   return (
     <>
         <IonTabBar slot="bottom" className="custom-tab-bar">
-          <IonTabButton href="/home" tab="home">
+          <IonTabButton onClick={() => history.replace('/home')} tab="home">
             <IonIcon icon={home} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>

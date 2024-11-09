@@ -19,8 +19,11 @@ const SeeMore: React.FC = () => {
               <IonCard className="custom-card">
                 <Link 
                   to={{
-                    pathname: "/playgame",
-                    state: "random"  // Pass the alt value as state
+                    pathname: "/shuffle",
+                    state: {
+                      path : "random",
+                      src : "/card/2-3.png",
+                    } 
                   }}
                 >
                   <img src="/card/2-3.png" alt="random" />
@@ -29,10 +32,13 @@ const SeeMore: React.FC = () => {
             </IonCol>
             <IonCol size="6">
               <IonCard className="custom-card">
-                <Link 
+              <Link 
                   to={{
-                    pathname: "/playgame",
-                    state: "icon-5"  // Pass the alt value as state
+                    pathname: "/shuffle",
+                    state: {
+                      path : "icon-5",
+                      src : "/card/2-4.png",
+                    } 
                   }}
                 >
                   <img src="/card/2-4.png" alt="icon-5" />
@@ -41,10 +47,13 @@ const SeeMore: React.FC = () => {
             </IonCol>
             <IonCol size="6">
               <IonCard className="custom-card">
-                <Link 
+              <Link 
                   to={{
-                    pathname: "/playgame",
-                    state: "icon-2"  // Pass the alt value as state
+                    pathname: "/shuffle",
+                    state: {
+                      path : "icon-2",
+                      src : "/card/2-5.png",
+                    } 
                   }}
                 >
                   <img src="/card/2-5.png" alt="icon-2" />
@@ -53,10 +62,13 @@ const SeeMore: React.FC = () => {
             </IonCol>
             <IonCol size="6">
               <IonCard className="custom-card">
-                <Link 
+              <Link 
                   to={{
-                    pathname: "/playgame",
-                    state: "icon-3"  // Pass the alt value as state
+                    pathname: "/shuffle",
+                    state: {
+                      path : "icon-3",
+                      src : "/card/2-6.png",
+                    } 
                   }}
                 >
                   <img src="/card/2-6.png" alt="icon-3" />
@@ -65,10 +77,13 @@ const SeeMore: React.FC = () => {
             </IonCol>
             <IonCol size="6">
               <IonCard className="custom-card">
-                <Link 
+              <Link 
                   to={{
-                    pathname: "/playgame",
-                    state: "icon-4"  // Pass the alt value as state
+                    pathname: "/shuffle",
+                    state: {
+                      path : "icon-4",
+                      src : "/card/2-7.png",
+                    } 
                   }}
                 >
                   <img src="/card/2-7.png" alt="icon-4" />
@@ -77,24 +92,15 @@ const SeeMore: React.FC = () => {
             </IonCol>
             <IonCol size="6">
               <IonCard className="custom-card">
-                <Link 
+              <Link 
                   to={{
-                    pathname: "/playgame",
-                    state: "icon-6"  // Pass the alt value as state
+                    pathname: "/shuffle",
+                    state: {
+                      path : "icon-7",
+                      src : "/card/2-9.png",
+                    } 
                   }}
-                 >
-                  <img src="/card/2-8.png" alt="icon-6" />
-                </Link>
-              </IonCard>
-            </IonCol>
-            <IonCol size="6">
-              <IonCard className="custom-card">
-                <Link 
-                  to={{
-                    pathname: "/playgame",
-                    state: "icon-7"  // Pass the alt value as state
-                  }}
-                 >
+                >
                   <img src="/card/2-9.png" alt="icon-7" />
                 </Link>
               </IonCard>
