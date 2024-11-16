@@ -19,7 +19,10 @@
   --background: linear-gradient(135deg, #00c6ff, #ff72e6) !important;
   background-attachment: fixed !important;
 }
-
+.head-count{
+  color: #e1f9ff !important;
+  padding-left: 3rem;
+}
 .play-game-content::part(scroll) {
   background: linear-gradient(135deg, #00c6ff, #ff72e6) !important;
   background-attachment: fixed !important;

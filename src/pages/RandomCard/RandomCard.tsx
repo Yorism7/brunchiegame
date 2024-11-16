@@ -173,7 +173,7 @@ const RandomCard: React.FC = () => {
           <IonRow>
             <IonCol size="12" className="ProgressTab">
               <IonImg className='top' src={currentImage} alt='Progress Icon' />
-              <h1>{currentSlide + 1}/{lines.length}</h1>
+              <h1 className='head-count'>{currentSlide + 1}/{lines.length}</h1>
             </IonCol>
           </IonRow>
           <IonRow>
