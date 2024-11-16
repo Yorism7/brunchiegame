@@ -7,7 +7,6 @@
 	--ion-color-main2-shade: #d9b54b;
 	--ion-color-main2-tint: #f8d366;
 }
-
 .ion-color-main2 {
 	--ion-color-base: var(--ion-color-main2);
 	--ion-color-base-rgb: var(--ion-color-main2-rgb);
@@ -16,7 +15,15 @@
 	--ion-color-shade: var(--ion-color-main2-shade);
 	--ion-color-tint: var(--ion-color-main2-tint);
 }
+.play-game-content {
+  --background: linear-gradient(135deg, #00c6ff, #ff72e6) !important;
+  background-attachment: fixed !important;
+}
 
+.play-game-content::part(scroll) {
+  background: linear-gradient(135deg, #00c6ff, #ff72e6) !important;
+  background-attachment: fixed !important;
+}
 .mySwiper {
   padding-top: 30px !important;
   width: auto;

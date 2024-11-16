@@ -134,7 +134,7 @@ const RandomCard: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent>
+      <IonContent className='play-game-content'>
         <IonGrid>
           <IonRow>
             <IonCol size="12" className="ProgressTab">
