@@ -98,11 +98,8 @@ const App: React.FC = () => {
           <Route exact path="/endgame">
             {isAuthenticated ? <EndGame /> : <Redirect to="/login" />}
           </Route>
-          <Route exact path="/shuffle">
-            {isAuthenticated ? <Shuffle /> : <Redirect to="/login" />}
-          </Route>
           <Route exact path="/">
-            <Redirect to="/shuffle" />
+            <Redirect to="/login" />
           </Route>
         </IonRouterOutlet>
       </IonReactRouter>
