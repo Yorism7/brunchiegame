@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   IonButton,
   IonCol, IonContent, IonGrid,
-  IonImg, IonPage, IonRow
+  IonImg, IonPage, IonRow,
+  IonLoading
 } from '@ionic/react';
 import { useHistory, useLocation } from 'react-router-dom';
 import MyFooter from "../../components/MyFooter/MyFooter";
@@ -47,6 +48,7 @@ const RandomCard: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [lines, setLines] = useState<{ text: string, iconFile: string }[]>([]);
   const swiperRef = useRef<any>(null);  // Move swiperRef inside the component
+  const [loading, setLoading] = useState(true);
 
   const [currentImage, setCurrentImage] = useState(slideImages[0]);
 
@@ -58,7 +60,7 @@ const RandomCard: React.FC = () => {
   // Icon mapping for each question file
   const iconMapping: { [key: string]: string } = {
     'question1': 'icon-5',
-    'question2': 'icon-2',
+    'question2': 'icon-2', 
     'question3': 'icon-3',
     'question4': 'icon-4',
     'question7': 'icon-7',
@@ -88,6 +90,7 @@ const RandomCard: React.FC = () => {
   };
 
   const loadMultipleTextContent = async () => {
+    setLoading(true);
     const allLines: { text: string, iconFile: string }[] = [];
     const questionFiles = ['question1', 'question2', 'question3', 'question4', 'question7'];
 
@@ -127,6 +130,7 @@ const RandomCard: React.FC = () => {
     const shuffledFinalLines = shuffleArray(finalLines);
     setLines(shuffledFinalLines);
     setCurrentSlide(0);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -160,6 +164,11 @@ const RandomCard: React.FC = () => {
   return (
     <IonPage>
       <IonContent className='play-game-content'>
+        <IonLoading
+          isOpen={loading}
+          message={'Loading...'}
+          duration={3500}
+        />
         <IonGrid>
           <IonRow>
             <IonCol size="12" className="ProgressTab">

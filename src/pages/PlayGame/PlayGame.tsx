@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import {
   IonButton,
   IonCol, IonContent, IonGrid,
-  IonImg, IonPage, IonRow
+  IonImg, IonPage, IonRow,
+  IonLoading
 } from '@ionic/react';
 import { useHistory, useLocation } from 'react-router-dom';
 import MyFooter from "../../components/MyFooter/MyFooter";
@@ -53,6 +54,7 @@ const PlayGame: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [Icon_name, setIcon_name] = useState(0);
   const [lines, setLines] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
   const history = useHistory();
   const location = useLocation<statedata>();
   const slideData = location.state;
@@ -86,13 +88,17 @@ const PlayGame: React.FC = () => {
   }
 
   const loadTextContent = async (pathList: any) => {
-    const content = await fetchTextFileContent(pathQuestion(pathList));
-    const linesArray = content.split('\n').filter(Boolean);
-    // Get up to 10 random lines
-    const randomLines = getRandomLines(linesArray, 20);
-    setLines(randomLines);
-    setCurrentSlide(0); // Reset to the first slide when loading new content
-    setIcon_name(pathList);
+    try {
+      const content = await fetchTextFileContent(pathQuestion(pathList));
+      const linesArray = content.split('\n').filter(Boolean);
+      // Get up to 10 random lines
+      const randomLines = getRandomLines(linesArray, 20);
+      setLines(randomLines);
+      setCurrentSlide(0); // Reset to the first slide when loading new content
+      setIcon_name(pathList);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -121,6 +127,11 @@ const PlayGame: React.FC = () => {
   
   return (
     <IonPage>
+      <IonLoading
+        isOpen={loading}
+        message={'Loading...'}
+        duration={3500}
+      />
       <IonContent className='play-game-content'>
         <IonGrid>
           <IonRow>
