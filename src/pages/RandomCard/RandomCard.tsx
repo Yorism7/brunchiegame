@@ -11,6 +11,28 @@ import 'swiper/css';
 import 'swiper/css/effect-cards';
 import { EffectCards } from 'swiper/modules';
 
+
+const generateSlideImages = () => {
+  const images: { [key: number]: string } = {};
+  const totalImages = 20;
+  const imageIndices = Array.from({ length: totalImages }, (_, i) => i + 1);
+
+  // Fisher-Yates shuffle algorithm for better randomization
+  for (let i = imageIndices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [imageIndices[i], imageIndices[j]] = [imageIndices[j], imageIndices[i]];
+  }
+
+  // Map shuffled indices to image paths
+  imageIndices.forEach((index, position) => {
+    const imageNumber = index.toString().padStart(2, '0');
+    images[position] = `/head/${imageNumber}.png`;
+  });
+  return images;
+};
+
+const slideImages = generateSlideImages();
+
 // Function to shuffle an array
 const shuffleArray = <T,>(array: T[]): T[] => {
   const shuffledArray = [...array];
@@ -25,6 +47,8 @@ const RandomCard: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [lines, setLines] = useState<{ text: string, iconFile: string }[]>([]);
   const swiperRef = useRef<any>(null);  // Move swiperRef inside the component
+
+  const [currentImage, setCurrentImage] = useState(slideImages[0]);
 
   const history = useHistory();
   const location = useLocation<string[]>();
@@ -129,6 +153,7 @@ const RandomCard: React.FC = () => {
       endgamepage();
     } else {
       setCurrentSlide(swiper.activeIndex);
+      setCurrentImage(slideImages[swiper.activeIndex] || slideImages[0]);
     }
   };
 
@@ -138,7 +163,7 @@ const RandomCard: React.FC = () => {
         <IonGrid>
           <IonRow>
             <IonCol size="12" className="ProgressTab">
-              <IonImg className="top" src="/icon/B3.svg" alt="Progress Icon" />
+              <IonImg className='top' src={currentImage} alt='Progress Icon' />
               <h1>{currentSlide + 1}/{lines.length}</h1>
             </IonCol>
           </IonRow>

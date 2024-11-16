@@ -27,6 +27,28 @@ const getRandomLines = (lines: string[], maxLines: number) => {
 interface statedata {
   state: string | null;
 }
+
+const generateSlideImages = () => {
+  const images: { [key: number]: string } = {};
+  const totalImages = 20;
+  const imageIndices = Array.from({ length: totalImages }, (_, i) => i + 1);
+
+  // Fisher-Yates shuffle algorithm for better randomization
+  for (let i = imageIndices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [imageIndices[i], imageIndices[j]] = [imageIndices[j], imageIndices[i]];
+  }
+
+  // Map shuffled indices to image paths
+  imageIndices.forEach((index, position) => {
+    const imageNumber = index.toString().padStart(2, '0');
+    images[position] = `/head/${imageNumber}.png`;
+  });
+  return images;
+};
+
+const slideImages = generateSlideImages();
+
 const PlayGame: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [Icon_name, setIcon_name] = useState(0);
@@ -34,6 +56,7 @@ const PlayGame: React.FC = () => {
   const history = useHistory();
   const location = useLocation<statedata>();
   const slideData = location.state;
+  const [currentImage, setCurrentImage] = useState(slideImages[0]);
 
   const checkRandomStatus = (status: any) => {
     if(status != 'random'){
@@ -61,6 +84,7 @@ const PlayGame: React.FC = () => {
         return '/txt/no_more.txt';
     }
   }
+
   const loadTextContent = async (pathList: any) => {
     const content = await fetchTextFileContent(pathQuestion(pathList));
     const linesArray = content.split('\n').filter(Boolean);
@@ -90,6 +114,8 @@ const PlayGame: React.FC = () => {
       endgamepage();
     } else {
       setCurrentSlide(swiper.activeIndex);
+      // Update the current image based on the slide index
+      setCurrentImage(slideImages[swiper.activeIndex] || slideImages[0]);
     }
   };
   
@@ -99,7 +125,7 @@ const PlayGame: React.FC = () => {
         <IonGrid>
           <IonRow>
             <IonCol size='12' className='ProgressTab'>
-              <IonImg className='top' src='/icon/B3.svg' alt='Progress Icon' />
+            <IonImg className='top' src={currentImage} alt='Progress Icon' />
               <h1>{currentSlide + 1}/{lines.length}</h1> {/* Adjusted to show number of displayed lines */}
             </IonCol>
           </IonRow>
