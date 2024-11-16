@@ -24,13 +24,15 @@ const getRandomLines = (lines: string[], maxLines: number) => {
   // Select up to maxLines from the shuffled array
   return shuffled.slice(0, maxLines);
 };
-
+interface statedata {
+  state: string | null;
+}
 const PlayGame: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [Icon_name, setIcon_name] = useState(0);
   const [lines, setLines] = useState<string[]>([]);
   const history = useHistory();
-  const location = useLocation<string[]>();
+  const location = useLocation<statedata>();
   const slideData = location.state;
 
   const checkRandomStatus = (status: any) => {
@@ -70,11 +72,13 @@ const PlayGame: React.FC = () => {
   };
 
   useEffect(() => {
-      loadTextContent(checkRandomStatus(slideData)); // Load content on component mount or when location changes
-  }, [location]);
+    if (slideData) {
+      loadTextContent(checkRandomStatus(slideData));
+    }
+  }, [slideData]);
 
   const seemorepage = async () => {
-    return history.replace('/seemore');
+    return history.push('/seemore');
   };
   const endgamepage = async () => {
     return history.push('/endgame');

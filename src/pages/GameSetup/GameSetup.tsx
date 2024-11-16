@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   IonButton, IonCol, IonContent, IonGrid,
   IonImg, IonPage, IonRow
@@ -10,26 +10,44 @@ import 'swiper/css/effect-cards';
 import { EffectCards } from 'swiper/modules';
 import { useHistory } from 'react-router-dom';
 import './style.css';
+import { promise } from 'zod';
+// Define the type for setupData
+type setupData = "random" ; // Add all possible values
+
+// Define the type for setupSrc
+type setupSrc = string; // Or be more specific if needed
 
 const GameSetup: React.FC = () => {
   const history = useHistory();
-  const [selectedSlide, setSelectedSlide] = useState<any>();
+  const [selectedSlide, setSelectedSlide] = useState<setupData>("random");
+  const [selectedSrc, setSelectedSrc] = useState<setupSrc>("/card/2-3.png");
 
-  const handleSlideChange = (slideData: any) => {
-    setSelectedSlide(slideData); // Save the selected slide's data
+  const handleSlideChange = (res: {slideData:any,slideSrc:any}) => {
+    setSelectedSlide(res.slideData); // Save the selected slide's data
+    setSelectedSrc(res.slideSrc); // Save the selected slide's data
   };
 
   const handleButtonClick = () => {
-    if (selectedSlide) {
-      const path = selectedSlide.slideData ;
+    if (selectedSlide && selectedSrc) {
+      const path = selectedSlide ;
+      const src = selectedSrc ;
       history.push({
-        pathname: '/playgame',
-        state: path, // Pass the selected slide's data to /playgame
+        pathname: '/shuffle',
+        state: {
+          path : path,
+          src : src,
+        } // Pass the selected slide's data to /shuffle
       });
     } else {
-      history.push({
-        pathname: '/playgame',
-        state: "random", // Pass the selected slide's data to /playgame
+      const src = selectedSrc ;
+      Promise.resolve().then(() => { // Use Promise.resolve() to delay the navigation
+        history.replace({
+          pathname: '/shuffle',
+          state: {
+            path:"random",
+            src : src,
+          }
+        });
       });
     }
   };
@@ -53,7 +71,8 @@ const GameSetup: React.FC = () => {
                 onSlideChange={(swiper) => {
                   const slideIndex = swiper.activeIndex;
                   const slideData = swiper.slides[slideIndex].querySelector('img')?.getAttribute('alt'); // Get the alt attribute
-                  handleSlideChange({ slideData }); // Pass only the alt value
+                  const slideSrc = swiper.slides[slideIndex].querySelector('img')?.getAttribute('src'); // Get the alt attribute
+                  handleSlideChange({ slideData,slideSrc }); // Pass only the alt value
                 } }
               >
                 <SwiperSlide>

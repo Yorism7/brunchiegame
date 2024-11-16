@@ -41,7 +41,7 @@ import EndGame from './pages/EndGame/EndGame';
 import Register from './pages/Register/Register';
 import RandomCard from './pages/RandomCard/RandomCard';
 import Callback from './pages/Callback/Callback';
-import Shuffle from './pages/Shuffle/Shuffle';
+import RiffleShuffle from './components/RiffleShuffle/RiffleShuffle';
 
 setupIonicReact();
 
@@ -64,7 +64,6 @@ const App: React.FC = () => {
   if (isAuthenticated === null) {
     return null; // or a loading spinner/component
   }
-
   return (
     <IonApp>
       <IonReactRouter>
@@ -74,6 +73,9 @@ const App: React.FC = () => {
           </Route>
           <Route exact path="/login">
             <Login />
+          </Route>
+          <Route exact path="/shuffle">
+            <RiffleShuffle />
           </Route>
           <Route exact path="/callback">
             <Callback />
