@@ -41,6 +41,7 @@ import EndGame from './pages/EndGame/EndGame';
 import Register from './pages/Register/Register';
 import RandomCard from './pages/RandomCard/RandomCard';
 import Callback from './pages/Callback/Callback';
+import Shuffle from './pages/Shuffle/Shuffle';
 
 setupIonicReact();
 
@@ -95,8 +96,11 @@ const App: React.FC = () => {
           <Route exact path="/endgame">
             {isAuthenticated ? <EndGame /> : <Redirect to="/login" />}
           </Route>
+          <Route exact path="/shuffle">
+            {isAuthenticated ? <Shuffle /> : <Redirect to="/login" />}
+          </Route>
           <Route exact path="/">
-            <Redirect to="/login" />
+            <Redirect to="/shuffle" />
           </Route>
         </IonRouterOutlet>
       </IonReactRouter>
