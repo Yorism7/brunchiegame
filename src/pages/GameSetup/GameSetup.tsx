@@ -54,7 +54,7 @@ const GameSetup: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent color='main'>
+      <IonContent className='bgOfhome'>
         <IonGrid>
           <IonRow>
               <IonImg className='topOfSetup' src='/icon/KJKJ mat-01.png'></IonImg>
