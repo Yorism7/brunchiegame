@@ -116,9 +116,6 @@
   border: 15px solid #fcd9ff;
   background-color: #a44ad3;
 }
-.ProgressTab{
-  position: relative;
-}
 .ProgressTab h1{
   padding-top: 1.2em;
   text-align: center;
@@ -126,9 +123,10 @@
   font-size: 2em;
   color: rgb(87, 87, 87);
 }
-.ProgressTab .top{
+.top{
   position: absolute;
-  left: 50;
+  right: 40;
+  margin-left:4rem ;
   width: 120px;
 }
 @media only screen and (max-width: 300px) {
@@ -137,9 +135,28 @@
   }
 }
 
+@media only screen and (max-width: 700px) {
+  .mySwiper{
+     height: 60vh !important;
+     width:44vh !important;
+  }
+  .slide h1{
+    font-size: 3vh !important;
+  }
+  .slide ion-img{
+    width: 8.5vh !important;
+  }
+}
+
 @media only screen and (min-height: 900px) {
   .head-row {
-    padding-top: 80;
+    padding-top: 6vh;
+  }
+}
+
+@media only screen and (max-height: 800px) {
+  .head-row {
+    padding-top: 3vh;
   }
 }
   

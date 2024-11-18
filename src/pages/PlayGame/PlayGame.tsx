@@ -108,7 +108,7 @@ const PlayGame: React.FC = () => {
   }, [slideData]);
 
   const seemorepage = async () => {
-    return history.push('/seemore');
+    return history.replace('/seemore');
   };
   const endgamepage = async () => {
     return history.push('/endgame');
