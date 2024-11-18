@@ -148,15 +148,21 @@
   }
 }
 
-@media only screen and (min-height: 900px) {
+@media only screen and (min-height: 800px) {
   .head-row {
     padding-top: 6vh;
   }
 }
 
+@media only screen and (min-height: 900px) {
+  .head-row {
+    padding-top: 8vh;
+  }
+}
+
 @media only screen and (max-height: 800px) {
   .head-row {
-    padding-top: 3vh;
+    padding-top: 2vh !important;
   }
 }
   
