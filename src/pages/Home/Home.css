@@ -17,3 +17,10 @@
     max-width: 850px;
 }
 /* Home.css */
+
+
+@media only screen and (max-height: 800px) {
+    .size-content-home {
+      width: 46vh;
+    }
+  }
