@@ -23,6 +23,7 @@
 
 .cardContainer{
   position: relative;
+  top: -35px;
 }
 .topIcon{
   position: absolute;
@@ -30,6 +31,12 @@
   left: 24%;
   max-width: 200px;
   min-width: 200px;
+  z-index: 2;
+}
+
+.topOfSetup{
+  width: 65vw;
+  margin: auto;
   z-index: 2;
 }
 

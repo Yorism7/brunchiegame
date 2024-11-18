@@ -57,12 +57,10 @@ const GameSetup: React.FC = () => {
       <IonContent color='main'>
         <IonGrid>
           <IonRow>
-            <IonImg src='/icon/2-1.png'></IonImg>
+              <IonImg className='topOfSetup' src='/icon/KJKJ mat-01.png'></IonImg>
           </IonRow>
-
-          <IonRow>
-            <IonCol size="12" className='cardContainer'>
-              <IonImg className="topIcon" src='/icon/2-2.png'></IonImg>
+          <IonRow className='cardContainer'>
+            <IonCol size="12" >
               <Swiper
                 effect={'cards'}
                 modules={[EffectCards]}
@@ -100,16 +98,16 @@ const GameSetup: React.FC = () => {
                     <img src="/card/2-7.png" alt="icon-4" />
                   </div>
                 </SwiperSlide>
-                <SwiperSlide>
+                {/* <SwiperSlide>
                   <div className="slide-content" onClick={handleButtonClick}>
                     <img src="/card/2-9.png" alt="icon-7" />
                   </div>
-                </SwiperSlide>
+                </SwiperSlide> */}
               </Swiper>
             </IonCol>
           </IonRow>
 
-          <IonRow>
+          <IonRow className='cardContainer'>
             <IonCol size="12">
               <IonButton expand='block' color="light" shape='round' fill='outline' onClick={handleButtonClick}><b>เริ่มค้นใจ</b></IonButton>
             </IonCol>
