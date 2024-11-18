@@ -136,4 +136,10 @@
     max-width: 300px;
   }
 }
+
+@media only screen and (min-height: 900px) {
+  .head-row {
+    padding-top: 80;
+  }
+}
   

@@ -134,7 +134,7 @@ const PlayGame: React.FC = () => {
       />
       <IonContent className='play-game-content'>
         <IonGrid>
-          <IonRow>
+          <IonRow className='head-row'>
             <IonCol size='12' className='ProgressTab'>
             <IonImg className='top' src={currentImage} alt='Progress Icon' />
               <h1 className='title-header-playgame'>{currentSlide + 1}/{lines.length}</h1> {/* Adjusted to show number of displayed lines */}
