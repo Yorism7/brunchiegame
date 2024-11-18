@@ -35,11 +35,13 @@ const MyFooter: React.FC = () => {
       
     }
   }, []);
+  
   const handleLogout = () => {
     localStorage.removeItem('userSession'); // Remove session from localStorage
     localStorage.removeItem('line_access_token'); // Remove line session from localStorage
     history.push('/login'); // Redirect to login page
   };
+
   const handleAccount = () => {
     swal({
       title: `ยินดีต้อนรับ ${profile?.displayName}`,
@@ -82,10 +84,12 @@ const MyFooter: React.FC = () => {
             <IonIcon icon={openSharp} />
             <IonLabel>Website</IonLabel>
           </IonTabButton>
-          <IonTabButton onClick={handleAccount} tab="account">
-            <IonIcon icon={people} />
-            <IonLabel>Account</IonLabel>
+          {profile && (
+            <IonTabButton onClick={handleAccount} tab="account">
+              <IonIcon icon={people} />
+              <IonLabel>Account</IonLabel>
           </IonTabButton>
+          )}
           <IonTabButton onClick={handleLogout} tab="logout"> {/* Use onClick for logout */}
           <IonIcon icon={logOutSharp} />
           <IonLabel>Logout</IonLabel>
