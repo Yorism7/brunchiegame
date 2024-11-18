@@ -42,7 +42,11 @@
   font-weight: bold;
   color: #fff;
 }
-  
+ .title-header-playgame{
+  color: whitesmoke !important;
+  font-weight: 600 !important;
+  padding-left: 5rem;
+ } 
 .slide{
   position: relative;
   border-radius: 50px;
