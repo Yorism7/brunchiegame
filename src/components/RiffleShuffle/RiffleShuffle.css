@@ -1,7 +1,7 @@
 :root {
      --card-width: 200px;
      --card-height: 310px;
-     --anim-duration: 1500ms;
+     --anim-duration: 2000ms;
    }
    
    .riffle-container {
