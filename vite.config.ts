@@ -29,13 +29,6 @@ export default defineConfig({
           }
         ],
       },
-      webp: {
-        quality: 50, // Adjust quality (0-100), lower means smaller file size
-        lossless: false, // Set to true for lossless compression
-        nearLossless: false,
-        smartSubsample: true,
-        effort: 6, // Compression effort (0-6), higher means better compression but slower
-      },
       png: {
         // https://sharp.pixelplumbing.com/api-output#png
         quality: 50,
