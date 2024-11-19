@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'; // Import useHistory for redirect
 import Swal from 'sweetalert';
 import { useEffect, useState } from 'react';
 import { getUserProfile } from '../../utils/lineAuth';
+import { Browser } from '@capacitor/browser'
 
 interface UserProfile {
   userId: string;
@@ -17,6 +18,13 @@ interface UserProfile {
 const MyFooter: React.FC = () => {
   const history = useHistory(); // Hook to access the history object
   const [profile, setProfile] = useState<UserProfile | null>(null);
+
+  const openWebsite = async () => {
+    await Browser.open({ url: 'https://www.brunchtimeshop.com' });
+  };
+  const openWebsitePd = async () => {
+    await Browser.open({ url: 'https://www.brunchtimeshop.com/products' });
+  };
   
   useEffect(() => {
     
@@ -76,11 +84,11 @@ const MyFooter: React.FC = () => {
             <IonIcon icon={home} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
-          <IonTabButton href="https://www.brunchtimeshop.com/products" tab="contacts">
+          <IonTabButton onClick={openWebsitePd} tab="contacts">
             <IonIcon icon={bag} />
             <IonLabel>Shop</IonLabel>
           </IonTabButton>
-          <IonTabButton href="https://www.brunchtimeshop.com" tab="settings">
+          <IonTabButton onClick={openWebsite} tab="settings">
             <IonIcon icon={openSharp} />
             <IonLabel>Website</IonLabel>
           </IonTabButton>
