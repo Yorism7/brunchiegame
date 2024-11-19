@@ -101,7 +101,7 @@ import { getLineLoginUrl } from '../../utils/lineAuth';
   };
     return (
       <IonPage>
-        <IonContent className='bgOfhome'>
+        <IonContent color={'main'}>
           <IonGrid>
             <IonRow>
               <IonCol size="12">

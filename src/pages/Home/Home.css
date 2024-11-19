@@ -17,13 +17,13 @@
     max-width: 850px;
 }
 /* Home.css */
-.bgOfhome {    
-    --background: none; /* Fallback color */
-    background: #F7CE55 url("/bg/01.webp") no-repeat center/cover;
-    will-change: transform; /* Helps with performance by creating a new composite layer */
-    transform: translateZ(0); /* Forces hardware acceleration */
-    -webkit-backface-visibility: hidden; /* Reduces paint times in WebKit browsers */
-    backface-visibility: hidden;
+.bgOfhome {
+    --background: none;
+    background-image: url("/bg/01.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100vw 100vh;
+    background-color: #000000;
 }
 @media only screen and (max-height: 800px) {
     .size-content-home {
