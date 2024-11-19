@@ -17,14 +17,8 @@
     max-width: 850px;
 }
 /* Home.css */
-.bgOfhome {
-    --background: none;
-    background-image: url("/bg/01.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100vw 100vh;
-    background-color: #000000;
-}
+
+
 @media only screen and (max-height: 800px) {
     .size-content-home {
       width: 46vh;

@@ -89,7 +89,7 @@ const Home: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent className='bgOfhome' >
+      <IonContent color={'main'}>
         <IonGrid className='size-content-home'>
           <IonRow>
             <IonImg src='/icon/KJKJ_LOGO.png' alt="KJKJ Logo"></IonImg>
@@ -101,7 +101,7 @@ const Home: React.FC = () => {
                 <Link to="/GameSetup">
                   <IonImg src='/icon/1-3.png' className='cardBg' alt="Card Background"></IonImg>
                 </Link>
-                <IonImg src='/icon/1-2.png' className='bonusIcon' alt="Bonus Icon" ></IonImg>
+                <IonImg src='/icon/1-2.png' className='bonusIcon' alt="Bonus Icon"></IonImg>
               </div>
             </IonCol>
           </IonRow>
