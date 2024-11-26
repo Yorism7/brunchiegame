@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'; // Import useHistory for redirect
 import Swal from 'sweetalert';
 import { useEffect, useState } from 'react';
 import { getUserProfile } from '../../utils/lineAuth';
+import { Capacitor } from '@capacitor/core';
 import { Browser } from '@capacitor/browser'
 
 interface UserProfile {
@@ -14,16 +15,32 @@ interface UserProfile {
   statusMessage?: string;
   email?: string;
 }
+// Function to handle opening external URLs
+const openExternalUrl = async (url: string) => {
+  if (Capacitor.isNativePlatform()) {
+    // For mobile platforms (iOS/Android)
+    try {
+      await Browser.open({ url });
+    } catch (error) {
+      console.error('Error opening browser:', error);
+      // Fallback to window.open
+      window.open(url, '_blank');
+    }
+  } else {
+    // For web platform
+    window.open(url, '_blank');
+  }
+};
 
 const MyFooter: React.FC = () => {
   const history = useHistory(); // Hook to access the history object
   const [profile, setProfile] = useState<UserProfile | null>(null);
 
   const openWebsite = async () => {
-    await Browser.open({ url: 'https://www.brunchtimeshop.com' });
+    openExternalUrl('https://www.brunchtimeshop.com');
   };
   const openWebsitePd = async () => {
-    await Browser.open({ url: 'https://www.brunchtimeshop.com/products' });
+    openExternalUrl('https://www.brunchtimeshop.com/products');
   };
   
   useEffect(() => {
