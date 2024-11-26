@@ -76,7 +76,7 @@ const Register: React.FC = () => {
           <IonRow>
             <IonInput
               className="form_login"
-              placeholder="Name"
+              placeholder="Email"
               value={name}
               onIonInput={(e) => setName(e.detail.value!)}
               autocomplete="off"
