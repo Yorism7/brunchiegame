@@ -85,7 +85,7 @@ const Register: React.FC = () => {
           <IonRow className="ion-padding-top">
             <IonInput
               className="form_login"
-              placeholder="Username" // Changed from Email to Username
+              placeholder="Email" // Changed from Email to Username
               value={username} // Updated state variable
               onIonInput={(e) => setUsername(e.detail.value!)} // Updated state function
               autocomplete="off"
