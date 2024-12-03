@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   IonButton,
   IonCol, IonContent, IonGrid,
-  IonImg, IonPage, IonRow,
+  IonPage, IonRow,
   IonLoading
 } from '@ionic/react';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -136,7 +136,7 @@ const PlayGame: React.FC = () => {
         <IonGrid>
           <IonRow >
             <IonCol size='12' className='ProgressTab'>
-            <IonImg className='top' src={currentImage} alt='Progress Icon' />
+            <img className='top' src={currentImage} alt='Progress Icon' />
               <h1 className='head-count'>{currentSlide + 1}/{lines.length}</h1> {/* Adjusted to show number of displayed lines */}
             </IonCol>
           </IonRow>
@@ -153,10 +153,10 @@ const PlayGame: React.FC = () => {
                 {lines.map((line, index) => (
                   <SwiperSlide key={index} className={'slide'+' '+Icon_name}>
                     <h1>{line}</h1> {/* Display the randomly selected line */}
-                    <IonImg src='/icon/LOGO.svg' className='TopiconInCard' alt='Slide Image' />
-                    <IonImg src={'icon/'+Icon_name+'.svg'} className='seccond-TopiconInCard' alt='Icon' />
-                    <IonImg src='/icon/LOGO.svg' className='BottomiconInCard' alt='Logo' />
-                    <IonImg src={'icon/'+Icon_name+'.svg'} className='seccond-BottomiconInCard' alt='Icon' />
+                    <img src='/icon/LOGO.svg' className='TopiconInCard' alt='Slide Image' />
+                    <img src={'icon/'+Icon_name+'.svg'} className='seccond-TopiconInCard' alt='Icon' />
+                    <img src='/icon/LOGO.svg' className='BottomiconInCard' alt='Logo' />
+                    <img src={'icon/'+Icon_name+'.svg'} className='seccond-BottomiconInCard' alt='Icon' />
                   </SwiperSlide>
                 ))}
                 <SwiperSlide className='slide'>

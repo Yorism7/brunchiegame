@@ -8,7 +8,6 @@ import {
   IonGrid,
   IonRow,
   IonCol,
-  IonImg,
 } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert';
@@ -70,7 +69,7 @@ const Register: React.FC = () => {
         <IonGrid>
           <IonRow className='head-my-app'>
             <IonCol size="12">
-              <IonImg src="/icon/KJKJ_LOGO.png" />
+              <img src="/icon/KJKJ_LOGO.png" />
             </IonCol>
           </IonRow>
           <IonRow>

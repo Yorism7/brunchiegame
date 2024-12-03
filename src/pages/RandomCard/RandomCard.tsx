@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   IonButton,
   IonCol, IonContent, IonGrid,
-  IonImg, IonPage, IonRow,
+  IonPage, IonRow,
   IonLoading
 } from '@ionic/react';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -172,7 +172,7 @@ const RandomCard: React.FC = () => {
         <IonGrid>
           <IonRow>
             <IonCol size="12" className="ProgressTab">
-              <IonImg className='top' src={currentImage} alt='Progress Icon' />
+              <img className='top' src={currentImage} alt='Progress Icon' />
               <h1 className='head-count'>{currentSlide + 1}/{lines.length}</h1>
             </IonCol>
           </IonRow>
@@ -190,10 +190,10 @@ const RandomCard: React.FC = () => {
                 {lines.map((line, index) => (
                   <SwiperSlide key={index} className={`slide ${line.iconFile}`}>
                     <h1>{line.text}</h1>
-                    <IonImg src="/icon/LOGO.svg" className="TopiconInCard" alt="Slide Image" />
-                    <IonImg src={`/icon/${line.iconFile}.svg`} className="seccond-TopiconInCard" alt="Icon" />
-                    <IonImg src="/icon/LOGO.svg" className="BottomiconInCard" alt="Logo" />
-                    <IonImg src={`/icon/${line.iconFile}.svg`} className="seccond-BottomiconInCard" alt="Icon" />
+                    <img src="/icon/LOGO.svg" className="TopiconInCard" alt="Slide Image" />
+                    <img src={`/icon/${line.iconFile}.svg`} className="seccond-TopiconInCard" alt="Icon" />
+                    <img src="/icon/LOGO.svg" className="BottomiconInCard" alt="Logo" />
+                    <img src={`/icon/${line.iconFile}.svg`} className="seccond-BottomiconInCard" alt="Icon" />
                   </SwiperSlide>
                 ))}
                 <SwiperSlide className="slide">

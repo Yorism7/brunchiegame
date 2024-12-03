@@ -4,7 +4,6 @@ import {
   IonCol,
   IonContent,
   IonGrid,
-  IonImg,
   IonPage,
   IonRow,
 } from '@ionic/react';
@@ -92,16 +91,16 @@ const Home: React.FC = () => {
       <IonContent color={'main'}>
         <IonGrid>
           <IonRow className='head-my-app'>
-            <IonImg src='/icon/KJKJ_LOGO.png' alt="KJKJ Logo"></IonImg>
+            <img src='/icon/KJKJ_LOGO.png' alt="KJKJ Logo"></img>
           </IonRow>
 
           <IonRow>
             <IonCol size='12'>
               <div className="relativeObject">
                 <Link to="/GameSetup">
-                  <IonImg src='/icon/1-3.png' className='cardBg' alt="Card Background"></IonImg>
+                  <img src='/icon/1-3.png' className='cardBg' alt="Card Background"></img>
                 </Link>
-                <IonImg src='/icon/1-2.png' className='bonusIcon' alt="Bonus Icon"></IonImg>
+                <img src='/icon/1-2.png' className='bonusIcon' alt="Bonus Icon"></img>
               </div>
             </IonCol>
           </IonRow>

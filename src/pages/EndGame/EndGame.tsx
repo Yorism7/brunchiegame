@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   IonButton, IonCol, IonContent, IonGrid,
-  IonImg, IonPage, IonRow} from '@ionic/react';
+  IonPage, IonRow} from '@ionic/react';
 import MyFooter from "../../components/MyFooter/MyFooter";
 import 'swiper/css';
 import 'swiper/css/effect-cards';
@@ -21,11 +21,11 @@ const EndGame: React.FC = () => {
       <IonContent color='main'>
         <IonGrid>
           <IonRow>
-            <IonImg className='JoyAgain' src='icon/end-text.svg'></IonImg>
+            <img className='JoyAgain' src='icon/end-text.svg'></img>
           </IonRow>
           <IonRow>
             <div className='JoyAgain' onClick={joyagain}>
-                <IonImg src='icon/JoyAgain.svg'></IonImg>
+                <img src='icon/JoyAgain.svg'></img>
             </div>
           </IonRow>
           <IonRow>

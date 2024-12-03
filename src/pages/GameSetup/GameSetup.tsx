@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   IonButton, IonCol, IonContent, IonGrid,
-  IonImg, IonPage, IonRow
+  IonPage, IonRow
 } from '@ionic/react';
 import MyFooter from "../../components/MyFooter/MyFooter";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -57,12 +57,12 @@ const GameSetup: React.FC = () => {
       <IonContent color='main'>
         <IonGrid>
           <IonRow className='head-my-app'>
-            <IonImg src='/icon/2-1.png'></IonImg>
+            <img src='/icon/2-1.png'></img>
           </IonRow>
 
           <IonRow>
             <IonCol size="12" className='cardContainer'>
-              <IonImg className="topIcon" src='/icon/2-2.png'></IonImg>
+              <img className="topIcon" src='/icon/2-2.png'></img>
               <Swiper
                 effect={'cards'}
                 modules={[EffectCards]}

@@ -7,7 +7,6 @@ import {
     IonGrid,
     IonRow,
     IonCol,
-    IonImg,
   } from '@ionic/react';
   import React, { useEffect, useState } from 'react';
   import { useHistory } from 'react-router-dom';
@@ -105,7 +104,7 @@ import { getLineLoginUrl } from '../../utils/lineAuth';
           <IonGrid>
             <IonRow className='head-my-app'>
               <IonCol size="12">
-                <IonImg src="/icon/KJKJ_LOGO.png"></IonImg>
+                <img src="/icon/KJKJ_LOGO.png" ></img>
               </IonCol>
             </IonRow>
             <IonRow>
@@ -167,13 +166,13 @@ import { getLineLoginUrl } from '../../utils/lineAuth';
             
             {/* <IonRow>
               <IonCol className="sub_login">
-                <IonImg className="sub_login" src="/icon/line.png"></IonImg>
-                <IonImg className="sub_login" src="/icon/facebook.png"></IonImg>
+                <img className="sub_login" src="/icon/line.png"></img>
+                <img className="sub_login" src="/icon/facebook.png"></img>
               </IonCol>
             </IonRow> */}
             <IonRow>
-              <IonCol size="12">
-                <IonImg className="footer" src="/icon/logo_footer.png"></IonImg>
+              <IonCol size="12" className="footer">
+                <img  src="/icon/logo_footer.png"></img>
               </IonCol>
             </IonRow>
             <IonRow className="ion-padding-top">

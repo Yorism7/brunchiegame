@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   IonCard, IonCol, IonContent, IonGrid,
-  IonImg, IonPage, IonRow} from '@ionic/react';
+  IonPage, IonRow} from '@ionic/react';
 import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 import MyFooter from "../../components/MyFooter/MyFooter";
 import './SeeMore.css';
@@ -12,7 +12,7 @@ const SeeMore: React.FC = () => {
       <IonContent color='main'>
         <IonGrid>
           <IonRow className='custom-card'>
-            <IonImg src='/icon/2-1.png'></IonImg>
+            <img src='/icon/2-1.png'></img>
           </IonRow>
           <IonRow>
             <IonCol size="6">
