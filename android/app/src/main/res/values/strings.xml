@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">brunchiegame</string>
-    <string name="title_activity_main">brunchiegame</string>
+    <string name="app_name">ค้นใจค้นจอย Break the ice quiz</string>
+    <string name="title_activity_main">ค้นใจค้นจอย Break the ice quiz</string>
     <string name="package_name">ionic.brunchiegame</string>
     <string name="custom_url_scheme">ionic.brunchiegame</string>
 </resources>
