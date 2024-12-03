@@ -91,7 +91,7 @@ const Home: React.FC = () => {
     <IonPage>
       <IonContent color={'main'}>
         <IonGrid>
-          <IonRow>
+          <IonRow className='head-my-app'>
             <IonImg src='/icon/KJKJ_LOGO.png' alt="KJKJ Logo"></IonImg>
           </IonRow>
 

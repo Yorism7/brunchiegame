@@ -56,7 +56,7 @@ const GameSetup: React.FC = () => {
     <IonPage>
       <IonContent color='main'>
         <IonGrid>
-          <IonRow>
+          <IonRow className='head-my-app'>
             <IonImg src='/icon/2-1.png'></IonImg>
           </IonRow>
 

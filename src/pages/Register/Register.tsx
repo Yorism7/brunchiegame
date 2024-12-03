@@ -68,7 +68,7 @@ const Register: React.FC = () => {
     <IonPage>
       <IonContent color={'main'}>
         <IonGrid>
-          <IonRow>
+          <IonRow className='head-my-app'>
             <IonCol size="12">
               <IonImg src="/icon/KJKJ_LOGO.png" />
             </IonCol>
