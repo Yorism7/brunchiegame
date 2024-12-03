@@ -82,10 +82,10 @@ const MyFooter: React.FC = () => {
             <IonIcon icon={openSharp} />
             <IonLabel>Website</IonLabel>
           </IonTabButton>
-          <IonTabButton onClick={handleAccount} tab="account">
+          {/* <IonTabButton onClick={handleAccount} tab="account">
             <IonIcon icon={people} />
             <IonLabel>Account</IonLabel>
-          </IonTabButton>
+          </IonTabButton> */}
           <IonTabButton onClick={handleLogout} tab="logout"> {/* Use onClick for logout */}
           <IonIcon icon={logOutSharp} />
           <IonLabel>Logout</IonLabel>
