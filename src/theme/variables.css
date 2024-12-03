@@ -11,3 +11,14 @@ http://ionicframework.com/docs/theming/ */
 :root {
     --ion-font-family:  'IBMPlexSansThai', sans-serif;
 }  
+
+.ios {
+    ion-grid {
+      --ion-grid-padding: 0 !important;
+      --ion-grid-column-padding: 0 !important;
+    }
+    
+    ion-col {
+      padding: 0 !important;
+    }
+  }
