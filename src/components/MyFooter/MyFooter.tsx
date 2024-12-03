@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'; // Import useHistory for redirect
 import Swal from 'sweetalert';
 import { useEffect, useState } from 'react';
 import { getUserProfile } from '../../utils/lineAuth';
+import { Browser, OpenOptions } from '@capacitor/browser';
 
 interface UserProfile {
   userId: string;
@@ -66,6 +67,17 @@ const MyFooter: React.FC = () => {
       }
     });
   }
+  
+const openBrowserWithOptions = async (url: string) => {
+  const options: OpenOptions = {
+    url: url,
+    presentationStyle: 'fullscreen', // or 'popover'
+    toolbarColor: '#ffffff',
+  };
+  
+  await Browser.open(options);
+};
+
 
   return (
     <>
@@ -74,11 +86,11 @@ const MyFooter: React.FC = () => {
             <IonIcon icon={home} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
-          <IonTabButton href="https://www.brunchtimeshop.com/products" tab="contacts">
+          <IonTabButton onClick={() => openBrowserWithOptions("https://www.brunchtimeshop.com/products")} tab="contacts">
             <IonIcon icon={bag} />
             <IonLabel>Shop</IonLabel>
           </IonTabButton>
-          <IonTabButton href="https://www.brunchtimeshop.com" tab="settings">
+          <IonTabButton onClick={() => openBrowserWithOptions("https://www.brunchtimeshop.com")} tab="settings">
             <IonIcon icon={openSharp} />
             <IonLabel>Website</IonLabel>
           </IonTabButton>
