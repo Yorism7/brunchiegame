@@ -150,20 +150,7 @@ import { getLineLoginUrl } from '../../utils/lineAuth';
                 </IonButton>
               </IonCol>
             </IonRow>
-             {/* LINE Login Button */}
-             <IonRow>
-              <IonCol>
-                <IonButton
-                  expand="block"
-                  color="success"
-                  className="line-login-button"
-                  onClick={handleLineLogin}
-                >
-                  <IonImg src="/icon/line.png" style={{ width: '20px', marginRight: '8px' }} />
-                  LINE
-                </IonButton>
-              </IonCol>
-            </IonRow>
+            
             <IonRow>
               <IonCol size="12">
                 <IonButton
